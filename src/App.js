@@ -1,16 +1,20 @@
+// node_modules
 import React from 'react';
 
+// css
 import './colours.css';
 import './layout.css';
 
-import PageTitle from './PageTitle';
-import CityName from './CityName';
-import CurrentConditions from './CurrentConditions';
-import WeatherWarnings from './WeatherWarnings'
-import TodayTemperature from './TodayTemperature';
-import TodayPrecipitation from './TodayPrecipitation';
-import TomorrowForecast from './TomorrowForecast';
-import Footer from './Footer';
+//import GetWeatherData from './components/GetWeatherData';
+
+// page components
+import PageTitle from './components/PageTitle';
+import CurrentConditions from './components/CurrentConditions';
+import WeatherWarnings from './components/WeatherWarnings';
+import TodayTemperature from './components/TodayTemperature';
+import TodayPrecipitation from './components/TodayPrecipitation';
+import TomorrowForecast from './components/TomorrowForecast';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -19,7 +23,6 @@ function App() {
         <PageTitle />
       </header>
       <main>
-        <CityName/>
         <CurrentConditions />
         <WeatherWarnings />
         <TodayTemperature />
