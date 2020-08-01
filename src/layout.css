@@ -1,0 +1,31 @@
+.info-bits  {
+    height: 6vh;
+}
+
+.text-center  {
+    text-align: center;
+}
+
+.app-section-full-width  {
+    border-radius: 5px;
+    width: 90vw;
+
+    margin: auto;
+    margin-top: 2.5vw;
+    background-color: rgb(204, 204, 204);
+}
+
+.app-section-half-width-container  {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    margin: auto;
+}
+
+.app-section-half-width  {
+    border-radius: 15px;
+    width: 42.5vw;
+    height: 42.5vw;
+    margin-top: 2.5vw;
+    background-color: rgb(204, 204, 204);
+}
