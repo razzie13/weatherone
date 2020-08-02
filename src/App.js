@@ -5,7 +5,7 @@ import React from 'react';
 import './colours.css';
 import './layout.css';
 
-//import GetWeatherData from './components/GetWeatherData';
+//import FiveDayForecast from './components/GetWeatherData';
 
 // page components
 import PageTitle from './components/PageTitle';
@@ -14,6 +14,7 @@ import WeatherWarnings from './components/WeatherWarnings';
 import TodayTemperature from './components/TodayTemperature';
 import TodayPrecipitation from './components/TodayPrecipitation';
 import TomorrowForecast from './components/TomorrowForecast';
+import MinuteData from './components/MinuteData';
 import Footer from './components/Footer';
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
       </main>
       <footer>
         <Footer />
+        <MinuteData />
       </footer>
     </div>
   );
