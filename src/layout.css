@@ -1,3 +1,13 @@
+/* APP HEADER */
+.page-header  {
+    box-sizing: border-box;
+    padding-left: 12px;
+}
+.page-header h3  {
+    margin-top: -24px;
+    padding-bottom: 10px;
+}
+
 .info-bits  {
     height: 6vh;
 }
@@ -5,14 +15,14 @@
 .text-center  {
     text-align: center;
 }
-
+/* APP SECTIONS */
 .app-section-full-width  {
     border-radius: 5px;
     width: 90vw;
 
     margin: auto;
     margin-top: 2.5vw;
-    background-color: rgb(204, 204, 204);
+    /*background-color: rgb(204, 204, 204);*/
 }
 
 .app-section-half-width-container  {
@@ -24,6 +34,7 @@
 }
 
 .app-section-half-width  {
+    position: relative;
     border-radius: 15px;
     width: 42.5vw;
     height: 42.5vw;
@@ -32,5 +43,53 @@
     line-height: 42.5vw;
     font-weight: bold;
     font-size: 60px;
-    background-color: rgb(204, 204, 204);
+    /*background-color: rgb(204, 204, 204);*/
+}
+
+.app-section-data-top  {
+    position: absolute;
+    border-radius: 15px 15px 0 0;
+    width: 100%;
+    height: 15%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.app-section-data-top span  {
+    position: relative;
+    top: -18.5vw;
+}
+
+.app-section-data-bottom  {
+    position: absolute;
+    border-radius: 0 0 15px 15px;
+    width: 100%;
+    height: 15%;
+    margin-top: -15%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.app-section-data-bottom span  {
+    position: relative;
+    top: -18.5vw;
+    text-transform: capitalize;
+}
+
+.day-outlook  {
+    padding: 2px;
+}
+
+.full-width-flex  {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.app-section-flex-third  {
+    width: 28vw;
+    text-align: center;
+    border-radius: 10px;
 }

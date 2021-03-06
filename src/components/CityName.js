@@ -4,6 +4,6 @@ const cityName = 'Kitchener, ON';
 
 export default function CityName() {
     return (
-            <h3>{cityName}</h3>  
+            <span>{cityName}</span>
     )
 }

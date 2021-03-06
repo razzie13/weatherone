@@ -1,12 +1,10 @@
 import React from 'react'
 
-import CityName from './CityName';
-
-export default function PageTitle() {
+export default function PageTitle(props) {
     return (
-        <div className="app-section-full-width">
+        <div className="app-section-full-width page-header">
             <h1>weatherone</h1>
-            <CityName />
+            <h3>{props.cityName}</h3>
         </div>
     )
 }

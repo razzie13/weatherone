@@ -1,5 +1,166 @@
-.warning  {
-    background-color: red;
+/* UI COMPONENTS */
+.page-header  {
+    background-color: #0abde3;
     color: white;
 }
 
+#current-conditions  {
+    background-color: #c8d6e5;
+}
+
+#current-humidity  {
+    background-color: #2e86de;
+}
+
+#sun-times  {
+    background-color: #576574;
+    color: white;
+}
+
+.app-section-data-top  {
+    color: black;
+}
+
+.app-section-data-bottom  {
+    color: black;
+}
+
+/* WARNINGS */
+
+.weather-warning  {
+    background-color: #ee5253;
+    color: white;
+}
+
+.weather-watch  {
+    background-color: #ff9f43;
+    color: white;
+}
+
+.no-weather-alerts  {
+    background-color: #10ac84;
+    color: white;
+}
+
+/* RAIN ALERTS */
+
+.rain-coming  {
+    background-color: #2e86de;
+    color: white
+}
+
+.no-rain-coming  {
+    background-color: #feca57;
+}
+
+/* JACKET ALERTS */
+
+.jacket-need  {
+    background-color: #222f3e;
+    color: white;
+}
+
+.jacket-no-need  {
+    background-color: #ff9f43;
+    color: white;
+}
+
+/* TEMPERATURE COLOURS */
+
+.tens  {
+    background-color: #0abde3;
+    color: black;
+}
+
+.twenties  {
+    background-color: #feca57;
+    color: black;
+}
+
+.thirties  {
+    background-color: #ff9f43;
+    color: white;
+}
+
+.fourties  {
+    background-color: #ee5253;
+    color: white;
+}
+
+.singledigits  {
+    background-color: #48dbfb;
+    color: black;
+}
+
+.minussingledigits  {
+    background-color: #54a0ff;
+    color: white;
+}
+
+.minusteens  {
+    background-color: #2e86de;
+    color: white;
+}
+
+.minustwenties  {
+    background-color: #341f97;
+    color: white;
+}
+
+.minusthirties  {
+    background-color: #ee5253;
+    color: white;
+}
+
+/* WALKING BUTTON COLOURS */
+.walk-good  {
+    background-color: #10ac84;
+    color: white;
+}
+
+.walk-bad  {
+    background-color: #ee5253;
+    color: white;
+}
+
+/* NEED UMBRELLA COLOURS */
+.umbrella-need  {
+    background-color: #2e86de;
+    color: white;
+}
+
+.umbrella-dont-need  {
+    background-color: #feca57;
+    color: black;
+}
+
+/* UV RATINGS */
+/* 0-2 */
+.uv-low  {
+    background-color: #48dbfb;
+    color: white;
+}
+
+/* 3-5 */
+.uv-medium {
+    background-color: #0abde3;
+    color: white;
+}
+
+/* 6-7 */
+.uv-high, .uv-6, .uv-7  {
+    background-color: #feca57;
+    color: black;
+}
+
+/* 7-10 */
+.uv-very-high, .uv-8, .uv-9, .uv-10  {
+    background-color: #ff9f43;
+    color: white;
+}
+
+/* 11+ */
+.uv-extremely-high {
+    background-color: #ee5253;
+    color: white;
+}
