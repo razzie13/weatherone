@@ -93,75 +93,20 @@ constructor(props) {
             // }
             // sunTimes()
 
-            // var precipitation = "No Rain for 12 Whole Hours";
-            // function umbrellaToday()  {
-            //     for (let i = 0; i < (res.data.hourly.length - 36); i++)  {
-            //         if (res.data.hourly[i].rain)  {
-            //             precipitation = "Pack Your Umbrella"
-            //         } 
-            //         if ((res.data.hourly[i].rain)  && (res.data.current.temp < 0))  {
-            //             precipitation = "It will snow today"
-            //         }
-            //         console.log(res.data.hourly[i].rain);
-            //     }
-            // }
-            // umbrellaToday()
-
-
-            // var todayJacketForecast;
-            // function jacketToday()  {
-            //     if (res.data.current.temp >= 30)  {
-            //         todayJacketForecast = "Wear your Shorts & Tanks!"
-            //     }
-            //     if (res.data.current.temp >= 16 && res.data.current.temp < 29)  {
-            //         todayJacketForecast = "Wear your Tees & Shorts!"
-            //     }
-            //     if (res.data.current.temp >= 10 && res.data.current.temp < 15)  {
-            //         todayJacketForecast = "Wear your Light Jacket"
-            //     }
-            //     if (res.data.current.temp >= 0 && res.data.current.temp < 9)  {
-            //         todayJacketForecast = "Wear your Jacket"
-            //     }
-            //     if (res.data.current.temp < 0)  {
-            //         todayJacketForecast = "Wear your Winter Jacket!"
-            //     }
-            // }
-            // jacketToday()
-
             // var weatherIcon;
             // //var responseIcon = res.data.current.weather[0].icon;
             // function convertWeatherIconToFontAwesome()  {
-            //     if (res.data.current.weather[0].icon === '01d')  {weatherIcon = "fas fa-sun"}; // clear
-            //     if (res.data.current.weather[0].icon === '02d')  {weatherIcon = "fas fa-cloud-sun"}; // few clouds
-            //     if (res.data.current.weather[0].icon === '03d')  {weatherIcon = "fas fa-cloud-sun"}; // scattered clouds
-            //     if (res.data.current.weather[0].icon === '04d')  {weatherIcon = "fas fa-cloud"}; // broken clouds
-            //     if (res.data.current.weather[0].icon === '09d')  {weatherIcon = "fas fa-cloud-showers-heavy"}; // rain shower
-            //     if (res.data.current.weather[0].icon === '10d')  {weatherIcon = "fas fa-cloud-rain"}; // rain
-            //     if (res.data.current.weather[0].icon === '11d')  {weatherIcon = "fas fa-bolt"}; // thunderstorm
-            //     if (res.data.current.weather[0].icon === '13d')  {weatherIcon = "fas fa-snowflake"}; // snow
-            //     if (res.data.current.weather[0].icon === '50d')  {weatherIcon = "fas fa-water"}; // mist
+            //     if (res.data.current.weather[0].icon === '01d')  {faSun}; // clear
+            //     if (res.data.current.weather[0].icon === '02d')  {faCloudSun}; // few clouds
+            //     if (res.data.current.weather[0].icon === '03d')  {fasFaCloudSun}; // scattered clouds
+            //     if (res.data.current.weather[0].icon === '04d')  {fasFaCloud}; // broken clouds
+            //     if (res.data.current.weather[0].icon === '09d')  {fasFaCloudShowersHeavy}; // rain shower
+            //     if (res.data.current.weather[0].icon === '10d')  {fasFaCloudRain}; // rain
+            //     if (res.data.current.weather[0].icon === '11d')  {fasFaBolt}; // thunderstorm
+            //     if (res.data.current.weather[0].icon === '13d')  {fasFaSnowflake}; // snow
+            //     if (res.data.current.weather[0].icon === '50d')  {fasFaWater}; // mist
             // }
             // convertWeatherIconToFontAwesome()
             
 
 
-            // this.setState({ 
-            //     conditions : weatherIcon,
-            //     //conditions : (res.data.current.weather[0].icon),
-            //     conditionsDescription : (res.data.current.weather[0].description),
-            //     temperature : Math.round(res.data.current.temp),
-            //     feelsLike : Math.round(res.data.current.feels_like),
-            //     uvi : Math.round(res.data.current.uvi),
-            //     humidity : (res.data.current.humidity),
-            //     sunTime : sunTime,
-            //     umbrellaToday : precipitation,
-            //     jacketToday : todayJacketForecast,
-
-            //     tomorrowHighTemp : Math.round(res.data.daily[1].temp.max),
-            //     tomorrowFeelsLike : Math.round(res.data.daily[1].feels_like.day),
-            //     tomorrowConditions : (res.data.daily[1].weather[0].main),
-        
-            //     tomorrowNightLowTemp : Math.round(res.data.daily[1].temp.night),
-            //     tomorrowNightFeelsLike : Math.round(res.data.daily[1].feels_like.night),
-                
-            //  })
