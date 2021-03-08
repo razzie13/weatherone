@@ -6,7 +6,6 @@ import DayAtAGlance from './DayAtAGlance'
 
 export default class CurrentConditions extends Component {
 
-
     constructor(props) {
         super(props)
     
@@ -30,8 +29,7 @@ export default class CurrentConditions extends Component {
                   
         }
     }
-    // this.state.data.data.current.weather[0].icon
-    
+
     render() {
         return (
             <div>
@@ -44,22 +42,15 @@ export default class CurrentConditions extends Component {
                 </div>
 
                 <div className="app-section-full-width"><h3>Your Day at a Glance:</h3></div>
-
                     <DayAtAGlance name={'alerts'} styling={"app-section-full-width text-center day-outlook no-weather-alerts"} info={null}/>
                     <DayAtAGlance name={'jacket'} styling={"app-section-full-width day-outlook text-center jacket-no-need"} info={this.state.temperature}/>
                     <DayAtAGlance name={'umbrella'} styling={"app-section-full-width day-outlook text-center rain-coming"} info={this.state.umbrellaToday}/>
-
-
             </div>
         )
     }
 
 
     componentDidMount()  {
-
-        setInterval(() => {
-            console.log('test setInterval')
-        }, 900000)
 
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=43.4516&lon=-80.4925&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
 
@@ -97,51 +88,10 @@ export default class CurrentConditions extends Component {
                 tomorrowNightFeelsLike : Math.round(res.data.daily[1].feels_like.night)
             })
 
-
-
             console.log(this.state)
         })
         .catch(err => console.log(err))
 
-
     }
-
 }              
-    
-    //   this.setState({ 
-    // conditions : (res.data.current.weather[0].icon),
-    // conditionsDescription : (res.data.current.weather[0].description),
-    // temperature : Math.round(res.data.current.temp),
-    // feelsLike : Math.round(res.data.current.feels_like),
-    // uvi : Math.round(res.data.current.uvi),
-    // humidity : (res.data.current.humidity),
-    // sunTime : null,
-    // umbrellaToday : null,
-    // jacketToday : null,
-
-    // tomorrowHighTemp : Math.round(res.data.daily[1].temp.max),
-    // tomorrowFeelsLike : Math.round(res.data.daily[1].feels_like.day),
-    // tomorrowConditions : (res.data.daily[1].weather[0].main),
-  
-    // tomorrowNightLowTemp : Math.round(res.data.daily[1].temp.night),
-    // tomorrowNightFeelsLike : Math.round(res.data.daily[1].feels_like.night)
-          
-    //   })
-
-    //   var precipitation = "No Rain for 12 Whole Hours";
-    //   function umbrellaToday()  {
-    //   for (let i = 0; i < (res.data.hourly.length - 36); i++)  {
-    //       if (res.data.hourly[i].rain)  {
-    //           precipitation = "Pack Your Umbrella"
-    //       } 
-    //       if ((res.data.hourly[i].rain)  && (res.data.current.temp < 0))  {
-    //           precipitation = "It will snow today"
-    //       }
-    //       console.log(res.data.hourly[i].rain);
-    //       this.setState({
-    //           umbrellaToday: precipitation
-    //       })
-    //   }
-    //   }
-    //   umbrellaToday()
 
