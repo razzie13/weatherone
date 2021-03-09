@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import GetWeatherDataCurrent from './GetWeatherDataCurrent'
-import DayAtAGlance from './DayAtAGlance'
+import WeatherConditions from './WeatherConditions'
+import LongRangeWeather from './LongRangeWeather'
+import { Route } from 'react-router'
 
-export default class CurrentConditions extends Component {
+export default class WeatherMain extends Component {
 
     constructor(props) {
         super(props)
     
         this.state = {
+            rightNow: true,
+            LongRange: false,
+
             conditions : null,
             conditionsDescription : null,
             temperature : null,
@@ -33,18 +37,23 @@ export default class CurrentConditions extends Component {
     render() {
         return (
             <div>
-                <div className="app-section-full-width"><h3>Right Now:</h3></div>
-                <div className="app-section-half-width-container">
-                    <GetWeatherDataCurrent id="conditions" value={this.state.conditions} description={this.state.conditionsDescription}/>
-                    <GetWeatherDataCurrent id="temperature" value={this.state.temperature} description={this.state.feelsLike}/>
-                    <GetWeatherDataCurrent id="uv-index" value={this.state.uvi} description="High"/>
-                    <GetWeatherDataCurrent id="humidity" value={this.state.humidity} description={null}/>
-                </div>
-
-                <div className="app-section-full-width"><h3>Your Day at a Glance:</h3></div>
-                    <DayAtAGlance name={'alerts'} styling={"app-section-full-width text-center day-outlook no-weather-alerts"} info={null}/>
-                    <DayAtAGlance name={'jacket'} styling={"app-section-full-width day-outlook text-center jacket-no-need"} info={this.state.temperature}/>
-                    <DayAtAGlance name={'umbrella'} styling={"app-section-full-width day-outlook text-center rain-coming"} info={this.state.umbrellaToday}/>
+                <Route path="/" exact render={(props) => (
+                     <WeatherConditions
+                     conditions={this.state.conditions} 
+                     conditionsDescription={this.state.conditionsDescription} 
+                     temperature={this.state.temperature} 
+                     feelsLike={this.state.feelsLike} 
+                     uvi={this.state.uvi} 
+                     humidity={this.state.humidity} 
+                     umbrellaToday={this.state.umbrellaToday} 
+                     jacketToday={this.state.jacketToday}
+                 />
+                )} />
+                <Route path="/long-range" exact render={(props) => (
+                    <LongRangeWeather />
+                )}
+                />
+                
             </div>
         )
     }

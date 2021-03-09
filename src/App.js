@@ -1,5 +1,6 @@
 // node_modules
 import React, { Component } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
 // css
 import './colours.css';
@@ -7,7 +8,7 @@ import './layout.css';
 
 // page components
 import PageTitle from './components/PageTitle';
-import CurrentConditions from './components/CurrentConditions';
+import WeatherMain from './components/WeatherInfo/WeatherMain'
 import Footer from './components/Footer';
 
 
@@ -25,17 +26,19 @@ constructor(props) {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <PageTitle cityName={this.state.cityName}/>
-        </header>
-        <main>
-          <CurrentConditions />
-        </main>
-        <footer>
-          <Footer />
-        </footer>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <header className="App-header">
+            <PageTitle cityName={this.state.cityName}/>
+          </header>
+          <main>
+            <WeatherMain />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </div>
+      </BrowserRouter>
     )
   }
 }
