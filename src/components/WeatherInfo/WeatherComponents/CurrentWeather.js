@@ -23,7 +23,7 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value < 50)   {temperatureClassName = 'fourties'}
     if (props.value < 40)   {temperatureClassName = 'thirties'}
     if (props.value < 30)   {temperatureClassName = 'twenties'}
-    if (props.value < 20)   {temperatureClassName = 'teens'}
+    if (props.value < 20)   {temperatureClassName = 'tens'}
     if (props.value < 10)   {temperatureClassName = 'singledigits'}
     if (props.value <  0)   {temperatureClassName = 'minussingledigits'}
     if (props.value < -10)  {temperatureClassName = 'minusteens'}

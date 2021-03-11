@@ -1,5 +1,6 @@
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
+//import fromUnixTime from 'date-fns/fromUnixTime'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -17,30 +18,28 @@ import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 
 export default function LongRangeForecast(props) {
 
-    // Create className from Temperature Value 
-
-    let temperatureClassName
-    if (props.longRangeData[1].temp.max < 50) {temperatureClassName = 'fourties'}
-    if (props.longRangeData[1].temp.max < 40) {temperatureClassName = 'thirties'}
-    if (props.longRangeData[1].temp.max < 30) {temperatureClassName = 'twenties'}
-    if (props.longRangeData[1].temp.max < 20) {temperatureClassName = 'tens'}
-    if (props.longRangeData[1].temp.max < 10) {temperatureClassName = 'singledigits'}
-    if (props.longRangeData[1].temp.max <  0) {temperatureClassName = 'minussingledigits'}
-    if (props.longRangeData[1].temp.max < -10) {temperatureClassName = 'minusteens'}
-    if (props.longRangeData[1].temp.max < -20) {temperatureClassName = 'minustwenties'}
-    if (props.longRangeData[1].temp.max < -30) {temperatureClassName = 'minusthirties'}
-
-    console.log(temperatureClassName)
-    console.log(props.longRangeData[1].temp.max)
-
-    var classNameClasses = ['app-section-full-width', 'long-range-forecast', temperatureClassName]
-    var classNameClassesTwo;
-
     return (
         <>
-            {props.longRangeData.map((forecast) => (
+            {props.longRangeData.slice(1).map((forecast) => (
              
-            <div key={uuidv4()} className={classNameClasses.join(' ')}>
+            // <div key={uuidv4()} className={classNameClasses.join(' ')}>
+            <div key={uuidv4()} 
+                 className={['app-section-full-width', 'long-range-forecast', 
+
+                 // Create className from Temperature Value 
+                            
+                 (forecast.temp.max > 50 ? 'fourties' : null) ||
+                 (forecast.temp.max > 40 ? 'thirties' : null) ||
+                 (forecast.temp.max > 30 ? 'twenties' : null) ||
+                 (forecast.temp.max > 20 ? 'tens' : null) ||
+                 (forecast.temp.max > 10 ? 'singledigits' : null) ||
+                 (forecast.temp.max >  0 ? 'minussingledigits' : null) ||
+                 (forecast.temp.max > -10 ? 'minusteens' : null) ||
+                 (forecast.temp.max > -20 ? 'minustwenties' : null) ||
+                 (forecast.temp.max > -30 ? 'minusthirties' : null)
+                            
+                 ].join(' ')}>
+
                 
                 <div className="long-range-weather-weekday">
                     <h4>{forecast.dt}</h4>
