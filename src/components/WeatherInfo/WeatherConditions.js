@@ -6,7 +6,6 @@ import DayAtAGlance from './WeatherComponents/DayAtAGlance'
 export default function WeatherConditions(props) {
     return (
         <div>
-            <div className="app-section-full-width"><h3>Right Now:</h3></div>
             <div className="app-section-half-width-container">
                 <CurrentWeather id="conditions" value={props.conditions} description={props.conditionsDescription}/>
                 <CurrentWeather id="temperature" value={props.temperature} description={props.feelsLike}/>

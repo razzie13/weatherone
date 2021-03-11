@@ -12,7 +12,9 @@ import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
 import { faWater } from '@fortawesome/free-solid-svg-icons'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
 
+
 export default function GetWeatherDataCurrent(props) {
+
 
     // Create className from Temperature Value 
 
@@ -27,6 +29,8 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value < -10)  {temperatureClassName = 'minusteens'}
     if (props.value < -20)  {temperatureClassName = 'minustwenties'}
     if (props.value < -30)  {temperatureClassName = 'minusthirties'}
+
+
 
 
     let idClasses = ['current-', props.id]

@@ -1,95 +1,170 @@
 /* APP HEADER */
-.page-header  {
-    box-sizing: border-box;
-    padding-left: 12px;
-}
-.page-header h3  {
-    margin-top: -24px;
-    padding-bottom: 10px;
+.page-header {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 12px;
 }
 
-.info-bits  {
-    height: 6vh;
+.page-header h3 {
+  margin-top: -24px;
+  padding-bottom: 10px;
 }
 
-.text-center  {
-    text-align: center;
+.info-bits {
+  height: 6vh;
 }
+
+.text-center {
+  text-align: center;
+}
+
 /* APP SECTIONS */
-.app-section-full-width  {
-    border-radius: 5px;
-    width: 90vw;
-
-    margin: auto;
-    margin-top: 2.5vw;
-    /*background-color: rgb(204, 204, 204);*/
+.app-section-full-width {
+  border-radius: 5px;
+  width: 90vw;
+  margin: auto;
+  margin-top: 2.5vw;
+  /*background-color: rgb(204, 204, 204);*/
 }
 
-.app-section-half-width-container  {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 90vw;
-    margin: auto;
+.app-section-half-width-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90vw;
+  margin: auto;
 }
 
-.app-section-half-width  {
-    position: relative;
-    border-radius: 15px;
-    width: 42.5vw;
-    height: 42.5vw;
-    margin-top: 2.5vw;
-    text-align: center;
-    line-height: 42.5vw;
-    font-weight: bold;
-    font-size: 60px;
-    /*background-color: rgb(204, 204, 204);*/
+.app-section-half-width {
+  position: relative;
+  border-radius: 15px;
+  width: 42.5vw;
+  height: 42.5vw;
+  margin-top: 2.5vw;
+  text-align: center;
+  line-height: 42.5vw;
+  font-weight: bold;
+  font-size: 60px;
+  /*background-color: rgb(204, 204, 204);*/
 }
 
-.app-section-data-top  {
-    position: absolute;
-    border-radius: 15px 15px 0 0;
-    width: 100%;
-    height: 15%;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
+.app-section-data-top {
+  position: absolute;
+  border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 15%;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.app-section-data-top span  {
-    position: relative;
-    top: -18.5vw;
+.app-section-data-top span {
+  position: relative;
+  top: -18.5vw;
 }
 
-.app-section-data-bottom  {
-    position: absolute;
-    border-radius: 0 0 15px 15px;
-    width: 100%;
-    height: 15%;
-    margin-top: -15%;
-    font-size: 12px;
-    font-weight: bold;
-    text-align: center;
+.app-section-data-bottom {
+  position: absolute;
+  border-radius: 0 0 15px 15px;
+  width: 100%;
+  height: 15%;
+  margin-top: -15%;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.app-section-data-bottom span  {
-    position: relative;
-    top: -18.5vw;
-    text-transform: capitalize;
+.app-section-data-bottom span {
+  position: relative;
+  top: -18.5vw;
+  text-transform: capitalize;
 }
 
-.day-outlook  {
-    padding: 2px;
+.day-outlook {
+  padding: 2px;
 }
 
-.full-width-flex  {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+.full-width-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.app-section-flex-third  {
-    width: 28vw;
-    text-align: center;
-    border-radius: 10px;
+.app-section-flex-third {
+  width: 28vw;
+  text-align: center;
+  border-radius: 10px;
 }
+
+.right-now-long-range {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.right-now-long-range .active {
+  color: black;
+}
+
+.right-now-long-range .inactive {
+  color: grey;
+}
+
+.long-range-forecast {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 1rem 1rem 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.long-range-forecast .long-range-weather-weekday h4 {
+  margin-bottom: -2px;
+  margin-top: 10px;
+}
+
+.long-range-forecast .long-range-weather-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.long-range-forecast .long-range-weather-info .long-range-weather-icon {
+  width: 60px;
+  font-size: 48px;
+}
+
+.long-range-forecast .long-range-weather-info .long-range-weather-description {
+  width: 100%;
+  padding-left: 1rem;
+}
+/*# sourceMappingURL=layout.css.map */
