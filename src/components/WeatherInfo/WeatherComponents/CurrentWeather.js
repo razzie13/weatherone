@@ -98,9 +98,16 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value < -30) {temperatureClassName = 'thirty-eight'}
     if (props.value <= -31) {temperatureClassName = 'thirty-eight'}
 
+    let uvClassName
+    if (props.value > 10) {uvClassName = 'extreme-uv'}
+    if (props.value < 10) {uvClassName = 'thirty-nine'}
+    if (props.value < 8) {uvClassName = 'twenty-seven'}
+    if (props.value < 6) {uvClassName = 'nineteen'}
+    if (props.value < 3) {uvClassName = 'seven'}
+
 
     let idClasses = ['current-', props.id]
-    let classNameClasses = ['app-section-half-width', props.id === 'temperature' ? temperatureClassName : null]
+    let classNameClasses = ['app-section-half-width', props.id === 'uv-index' ? uvClassName : null || props.id === 'temperature' ? temperatureClassName : null]
 
     return (
         <div id={idClasses.join('')} className={classNameClasses.join(' ')}>

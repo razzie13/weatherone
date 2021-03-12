@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 
 import WeatherConditions from './WeatherConditions'
+import HourlyForecast from './WeatherComponents/HourlyForecast'
 import LongRangeForecast from './WeatherComponents/LongRangeForecast'
 
 export default class WeatherMain extends Component {
@@ -11,6 +12,8 @@ export default class WeatherMain extends Component {
     
         this.state = {
             rightNow: true,
+            hourlyForecast: false,
+            longRangeForecast: false,
 
             conditions : null,
             conditionsDescription : null,
@@ -22,26 +25,49 @@ export default class WeatherMain extends Component {
             umbrellaToday : null,
             jacketToday : null,
 
+            minuteData: [],
+
+            hourlyData: [],
             longRangeData: []
         }
 
         this.showLongRangeForecast = this.showLongRangeForecast.bind(this);
         this.showCurrentConditions = this.showCurrentConditions.bind(this);
+        this.showHourlyForecast = this.showHourlyForecast.bind(this);
     }
 
     showLongRangeForecast = () => {
-        this.setState({ rightNow: false })
+        this.setState({ 
+            rightNow: false,
+            hourlyForecast: false,
+            longRangeForecast: true
+        });
     }
 
     showCurrentConditions = () => {
-        this.setState({ rightNow: true })
+        this.setState({ 
+            rightNow: true,
+            hourlyForecast: false,
+            longRangeForecast: false
+        });
+    }
+
+    showHourlyForecast = () => {
+        this.setState({ 
+            rightNow: false,
+            hourlyForecast: true,
+            longRangeForecast: false
+        });
     }
     
     
     render() {
         return (
             <div>
-                <div className="app-section-full-width right-now-long-range"><h3 className={this.state.rightNow ? 'active' : 'inactive'} onClick={this.showCurrentConditions}>Right Now:</h3><h3 className={this.state.rightNow ? 'inactive' : 'active'} onClick={this.showLongRangeForecast}>Long Range</h3></div>
+                <div className="app-section-full-width right-now-long-range">
+                    <h3 className={this.state.rightNow ? 'active' : 'inactive'} onClick={this.showCurrentConditions}>Right Now</h3>
+                    <h3 className={this.state.hourlyForecast ? 'active' : 'inactive'} onClick={this.showHourlyForecast}>Hourly</h3>
+                    <h3 className={this.state.longRangeForecast ? 'active' : 'inactive'} onClick={this.showLongRangeForecast}>Long Range</h3></div>
                 {this.state.rightNow ?
                         <WeatherConditions
                         conditions={this.state.conditions} 
@@ -53,11 +79,19 @@ export default class WeatherMain extends Component {
                         umbrellaToday={this.state.umbrellaToday} 
                         jacketToday={this.state.jacketToday}
                     />
-                    : 
+                    : null } 
+
+                    {this.state.hourlyForecast ?
+                        <HourlyForecast
+                        hourlyData={this.state.hourlyData}
+                        />
+                    : null}
+
+                    {this.state.longRangeForecast ?
                         <LongRangeForecast
                         longRangeData={this.state.longRangeData}
                         />
-                    
+                    : null  
                 }
             </div>
         )
@@ -103,6 +137,14 @@ export default class WeatherMain extends Component {
               
                 tomorrowNightLowTemp : Math.round(res.data.daily[1].temp.night),
                 tomorrowNightFeelsLike : Math.round(res.data.daily[1].feels_like.night),
+
+                // Minute Data
+
+                minuteData: res.data.minutely,
+
+                // Hourly Forecast Component
+
+                hourlyData: res.data.hourly,
 
                 // Long Range Forecast Component
 

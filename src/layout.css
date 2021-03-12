@@ -59,6 +59,7 @@
   font-size: 12px;
   font-weight: bold;
   text-align: center;
+  font-size: 1rem;
 }
 
 .app-section-data-top span {
@@ -120,19 +121,17 @@
 
 .right-now-long-range h3 {
   background-color: #FF7765;
-  padding: 1rem;
+  padding: 0.8rem;
   border-style: none;
   border-radius: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  width: 48%;
+  width: 31%;
   margin-top: -8px;
   -webkit-transition: background-color 0.5s;
   transition: background-color 0.5s;
-}
-
-.right-now-long-range h3:nth-child(2) {
-  text-align: right;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .right-now-long-range .active {
