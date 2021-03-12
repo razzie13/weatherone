@@ -9,7 +9,7 @@ export default function WeatherConditions(props) {
             <div className="app-section-half-width-container">
                 <CurrentWeather id="conditions" value={props.conditions} description={props.conditionsDescription}/>
                 <CurrentWeather id="temperature" value={props.temperature} description={props.feelsLike}/>
-                <CurrentWeather id="uv-index" value={props.uvi} description="High"/>
+                <CurrentWeather id="uv-index" value={props.uvi} description={null}/>
                 <CurrentWeather id="humidity" value={props.humidity} description={null}/>
             </div>
 
