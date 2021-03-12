@@ -117,14 +117,31 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: white;
+}
+
+.right-now-long-range h3 {
+  background-color: #FF7765;
+  padding: 1rem;
+  border-style: none;
+  border-radius: 5px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 48%;
+  margin-top: -8px;
+}
+
+.right-now-long-range h3:nth-child(2) {
+  text-align: right;
 }
 
 .right-now-long-range .active {
-  color: black;
+  color: white;
 }
 
 .right-now-long-range .inactive {
   color: grey;
+  background-color: #FFBDB4;
 }
 
 .long-range-forecast {
@@ -138,6 +155,7 @@
   padding: 0 1rem 1rem 1rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  color: white;
 }
 
 .long-range-forecast .long-range-weather-weekday h4 {
@@ -159,12 +177,16 @@
 }
 
 .long-range-forecast .long-range-weather-info .long-range-weather-icon {
-  width: 60px;
+  width: 80px;
   font-size: 48px;
 }
 
 .long-range-forecast .long-range-weather-info .long-range-weather-description {
   width: 100%;
   padding-left: 1rem;
+}
+
+.long-range-forecast .long-range-weather-info .long-range-weather-temperature h3 {
+  margin-right: 1rem;
 }
 /*# sourceMappingURL=layout.css.map */

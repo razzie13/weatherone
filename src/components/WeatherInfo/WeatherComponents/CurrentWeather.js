@@ -11,6 +11,7 @@ import { faBolt } from '@fortawesome/free-solid-svg-icons'
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
 import { faWater } from '@fortawesome/free-solid-svg-icons'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
+import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function GetWeatherDataCurrent(props) {
@@ -20,15 +21,91 @@ export default function GetWeatherDataCurrent(props) {
 
     let temperatureClassName
 
-    if (props.value < 50)   {temperatureClassName = 'fourties'}
-    if (props.value < 40)   {temperatureClassName = 'thirties'}
-    if (props.value < 30)   {temperatureClassName = 'twenties'}
-    if (props.value < 20)   {temperatureClassName = 'tens'}
-    if (props.value < 10)   {temperatureClassName = 'singledigits'}
-    if (props.value <  0)   {temperatureClassName = 'minussingledigits'}
-    if (props.value < -10)  {temperatureClassName = 'minusteens'}
-    if (props.value < -20)  {temperatureClassName = 'minustwenties'}
-    if (props.value < -30)  {temperatureClassName = 'minusthirties'}
+    // if (props.value < 50)   {temperatureClassName = 'fourties'}
+    // if (props.value < 40)   {temperatureClassName = 'thirties'}
+    // if (props.value < 30)   {temperatureClassName = 'twenties'}
+    // if (props.value < 20)   {temperatureClassName = 'tens'}
+    // if (props.value < 10)   {temperatureClassName = 'singledigits'}
+    // if (props.value <  0)   {temperatureClassName = 'minussingledigits'}
+    // if (props.value < -10)  {temperatureClassName = 'minusteens'}
+    // if (props.value < -20)  {temperatureClassName = 'minustwenties'}
+    // if (props.value < -30)  {temperatureClassName = 'minusthirties'}
+
+    if (props.value < 39) {temperatureClassName = 'thirty-nine'}
+    if (props.value < 38) {temperatureClassName = 'thirty-eight'}
+    if (props.value < 37) {temperatureClassName = 'thirty-seven'}
+    if (props.value < 36) {temperatureClassName = 'thirty-six'}
+    if (props.value < 35) {temperatureClassName = 'thirty-five'}
+    if (props.value < 34) {temperatureClassName = 'thirty-four'}
+    if (props.value < 33) {temperatureClassName = 'thirty-three'}
+    if (props.value < 32) {temperatureClassName = 'thirty-two'}
+    if (props.value < 31) {temperatureClassName = 'thirty-one'}
+    if (props.value < 30) {temperatureClassName = 'thirty'}
+    if (props.value > 29) {temperatureClassName = 'twenty-nine'}
+    if (props.value < 28) {temperatureClassName = 'twenty-eight'}
+    if (props.value < 27) {temperatureClassName = 'twenty-seven'}
+    if (props.value < 26) {temperatureClassName = 'twenty-six'}
+    if (props.value < 25) {temperatureClassName = 'twenty-five'}
+    if (props.value < 24) {temperatureClassName = 'twenty-four'}
+    if (props.value < 23) {temperatureClassName = 'twenty-three'}
+    if (props.value < 22) {temperatureClassName = 'twenty-two'}
+    if (props.value < 21) {temperatureClassName = 'twenty-one'}
+    if (props.value < 20) {temperatureClassName = 'twenty'}
+    if (props.value < 19) {temperatureClassName = 'nineteen'}
+    if (props.value < 18) {temperatureClassName = 'eighteen'}
+    if (props.value < 17) {temperatureClassName = 'seventeen'}
+    if (props.value < 16) {temperatureClassName = 'sixteen'}
+    if (props.value < 15) {temperatureClassName = 'fifteen'}
+    if (props.value < 14) {temperatureClassName = 'fourteen'}
+    if (props.value < 13) {temperatureClassName = 'thirteen'}
+    if (props.value < 12) {temperatureClassName = 'twelve'}
+    if (props.value < 11) {temperatureClassName = 'eleven'}
+    if (props.value < 10) {temperatureClassName = 'ten'}
+
+    if (props.value < 9) {temperatureClassName = 'nine'}
+    if (props.value < 8) {temperatureClassName = 'eight'}
+    if (props.value < 7) {temperatureClassName = 'seven'}
+    if (props.value < 6) {temperatureClassName = 'six'}
+    if (props.value < 5) {temperatureClassName = 'five'}
+    if (props.value < 4) {temperatureClassName = 'four'}
+    if (props.value < 3) {temperatureClassName = 'three'}
+    if (props.value < 2) {temperatureClassName = 'two'}
+    if (props.value < 1) {temperatureClassName = 'one'}
+    if (props.value < 0) {temperatureClassName = 'zero'}
+
+    if (props.value < -1) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -2) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -3) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -4) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -5) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -6) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -7) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -8) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -9) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -10) {temperatureClassName = 'thirty-eight'}
+
+    if (props.value < -11) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -12) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -13) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -14) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -15) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -16) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -17) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -18) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -19) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -20) {temperatureClassName = 'thirty-eight'}
+
+    if (props.value < -21) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -22) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -23) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -24) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -25) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -26) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -27) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -28) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -29) {temperatureClassName = 'thirty-eight'}
+    if (props.value < -30) {temperatureClassName = 'thirty-eight'}
+    if (props.value <= -31) {temperatureClassName = 'thirty-eight'}
 
 
 
@@ -60,7 +137,9 @@ export default function GetWeatherDataCurrent(props) {
             (props.value === '11d' ? <FontAwesomeIcon icon={faBolt} /> : null) ||
             (props.value === '13d' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
             (props.value === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
-            (props.value === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null)
+            (props.value === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
+            (props.value === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null)
+
 
             : null}
 

@@ -13,8 +13,7 @@ export default function WeatherConditions(props) {
                 <CurrentWeather id="humidity" value={props.humidity} description={null}/>
             </div>
 
-            <div className="app-section-full-width"><h3>Your Day at a Glance:</h3></div>
-                <DayAtAGlance name={'alerts'} styling={"app-section-full-width text-center day-outlook no-weather-alerts"} info={null}/>
+            <div className="app-section-full-width"><h3>Your Day at a Glance:</h3></div>                
                 <DayAtAGlance name={'jacket'} styling={"app-section-full-width day-outlook text-center jacket-no-need"} info={props.temperature}/>
                 <DayAtAGlance name={'umbrella'} styling={"app-section-full-width day-outlook text-center rain-coming"} info={props.umbrellaToday}/>
         </div>

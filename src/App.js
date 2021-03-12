@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 // css
 import './colours.css';
+import './TemperatureColours.css'
 import './layout.css';
 
 // page components

@@ -98,13 +98,29 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: white;
+
+        h3  {
+            background-color: #FF7765 ;
+            padding: 1rem;
+            border-style: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            width: 48%;
+            margin-top: -8px;
+        }
+
+        h3:nth-child(2)  {
+            text-align: right;
+        }
 
         .active  {
-            color: black;
+            color: white;
         }
 
         .inactive  {
             color: grey;
+            background-color: #FFBDB4;
         }
 }
 
@@ -113,6 +129,7 @@
     flex-direction: column;
     padding: 0 1rem 1rem 1rem;
     box-sizing: border-box;
+    color: white;
 
     .long-range-weather-weekday  {
 
@@ -128,13 +145,20 @@
         justify-content: space-between;
 
         .long-range-weather-icon  {
-            width: 60px;
+            width: 80px;
             font-size: 48px;
         }
 
         .long-range-weather-description  {
             width: 100%;
             padding-left: 1rem;
+        }
+
+        .long-range-weather-temperature  {
+            h3  {
+                margin-right: 1rem;
+                
+            }
         }
     }
 }
