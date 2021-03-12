@@ -43,14 +43,13 @@
 .app-section-half-width {
   position: relative;
   border-radius: 15px;
-  width: 42.5vw;
-  height: 42.5vw;
+  width: 43.5vw;
+  height: 43.5vw;
   margin-top: 2.5vw;
   text-align: center;
   line-height: 42.5vw;
   font-weight: bold;
   font-size: 60px;
-  /*background-color: rgb(204, 204, 204);*/
 }
 
 .app-section-data-top {
@@ -129,6 +128,8 @@
           box-sizing: border-box;
   width: 48%;
   margin-top: -8px;
+  -webkit-transition: background-color 0.5s;
+  transition: background-color 0.5s;
 }
 
 .right-now-long-range h3:nth-child(2) {

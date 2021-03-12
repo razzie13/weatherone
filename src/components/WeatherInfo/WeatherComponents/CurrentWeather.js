@@ -16,20 +16,9 @@ import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 
 export default function GetWeatherDataCurrent(props) {
 
-
     // Create className from Temperature Value 
 
     let temperatureClassName
-
-    // if (props.value < 50)   {temperatureClassName = 'fourties'}
-    // if (props.value < 40)   {temperatureClassName = 'thirties'}
-    // if (props.value < 30)   {temperatureClassName = 'twenties'}
-    // if (props.value < 20)   {temperatureClassName = 'tens'}
-    // if (props.value < 10)   {temperatureClassName = 'singledigits'}
-    // if (props.value <  0)   {temperatureClassName = 'minussingledigits'}
-    // if (props.value < -10)  {temperatureClassName = 'minusteens'}
-    // if (props.value < -20)  {temperatureClassName = 'minustwenties'}
-    // if (props.value < -30)  {temperatureClassName = 'minusthirties'}
 
     if (props.value < 39) {temperatureClassName = 'thirty-nine'}
     if (props.value < 38) {temperatureClassName = 'thirty-eight'}
@@ -40,6 +29,7 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value < 33) {temperatureClassName = 'thirty-three'}
     if (props.value < 32) {temperatureClassName = 'thirty-two'}
     if (props.value < 31) {temperatureClassName = 'thirty-one'}
+    
     if (props.value < 30) {temperatureClassName = 'thirty'}
     if (props.value > 29) {temperatureClassName = 'twenty-nine'}
     if (props.value < 28) {temperatureClassName = 'twenty-eight'}
@@ -50,6 +40,7 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value < 23) {temperatureClassName = 'twenty-three'}
     if (props.value < 22) {temperatureClassName = 'twenty-two'}
     if (props.value < 21) {temperatureClassName = 'twenty-one'}
+    
     if (props.value < 20) {temperatureClassName = 'twenty'}
     if (props.value < 19) {temperatureClassName = 'nineteen'}
     if (props.value < 18) {temperatureClassName = 'eighteen'}
@@ -108,10 +99,7 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value <= -31) {temperatureClassName = 'thirty-eight'}
 
 
-
-
     let idClasses = ['current-', props.id]
-
     let classNameClasses = ['app-section-half-width', props.id === 'temperature' ? temperatureClassName : null]
 
     return (

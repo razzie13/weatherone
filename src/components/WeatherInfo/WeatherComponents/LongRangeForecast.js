@@ -1,6 +1,5 @@
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
-//import fromUnixTime from 'date-fns/fromUnixTime'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -16,19 +15,16 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons'
 import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 
 
-export default function LongRangeForecast(props) {
+export default function LongRangeForecast(props) {    
 
     return (
         <>
             {props.longRangeData.slice(1).map((forecast) => (
-             
-            // <div key={uuidv4()} className={classNameClasses.join(' ')}>
-            <div key={uuidv4()} 
-                 className={['app-section-full-width', 'long-range-forecast', 
+
+            <div key={uuidv4()} className={['app-section-full-width', 'long-range-forecast', 
 
                  // Create className from Temperature Value
                  
-                            
                  (forecast.temp.max > 39 ? 'thirty-nine' : null) ||
                  (forecast.temp.max > 38 ? 'thirty-eight' : null) ||
                  (forecast.temp.max > 37 ? 'thirty-seven' : null) ||
@@ -38,6 +34,7 @@ export default function LongRangeForecast(props) {
                  (forecast.temp.max > 33 ? 'thirty-three' : null) ||
                  (forecast.temp.max > 32 ? 'thirty-two' : null) ||
                  (forecast.temp.max > 31 ? 'thirty-one' : null) ||
+                 
                  (forecast.temp.max > 30 ? 'thirty' : null) ||
                  (forecast.temp.max > 29 ? 'twenty-nine' : null) ||
                  (forecast.temp.max > 28 ? 'twenty-eight' : null) ||
@@ -48,6 +45,7 @@ export default function LongRangeForecast(props) {
                  (forecast.temp.max > 23 ? 'twenty-three' : null) ||
                  (forecast.temp.max > 22 ? 'twenty-two' : null) ||
                  (forecast.temp.max > 21 ? 'twenty-one' : null) ||
+                 
                  (forecast.temp.max > 20 ? 'twenty' : null) ||
                  (forecast.temp.max > 19 ? 'nineteen' : null) ||
                  (forecast.temp.max > 18 ? 'eighteen' : null) ||
@@ -109,7 +107,7 @@ export default function LongRangeForecast(props) {
 
                 
                 <div className="long-range-weather-weekday">
-                    <h4>{forecast.dt}</h4>
+                    <h4>{new Date(forecast.dt * 1000).toLocaleDateString('en-us', { weekday: 'long'})}</h4>
                 </div>
                 <div className="long-range-weather-info">
                     <div className="long-range-weather-icon">
@@ -134,15 +132,9 @@ export default function LongRangeForecast(props) {
                     <div className="long-range-weather-temperature">
                         <h3>{Math.round(forecast.temp.max)}</h3>
                     </div>
-                </div>
-                        
+                </div>      
             </div>
-
-
-                
             ))}
-            
         </>
-        
     )
 }

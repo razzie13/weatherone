@@ -2,8 +2,6 @@ import React from 'react'
 
 export default function DayAtAGlance(props) {
 
-    console.log(props.info)
-
     let todayJacketForecast;
 
     if (props.info >= 30)  {
@@ -21,7 +19,6 @@ export default function DayAtAGlance(props) {
     if (props.info < 0)  {
         todayJacketForecast = "Wear your Winter Jacket!"
     }
-
 
 
     return (

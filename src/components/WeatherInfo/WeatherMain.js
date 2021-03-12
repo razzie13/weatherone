@@ -23,67 +23,6 @@ export default class WeatherMain extends Component {
             jacketToday : null,
 
             longRangeData: []
-
-            // longRangeData: [
-
-            //     {
-            //         day : 1,
-            //         dayName: null,
-            //         weatherIcon: null,
-            //         highTemp: null
-            //     },
-            //     {
-            //         day : 2,
-            //         dayName: null,
-            //         weatherIcon: null,
-            //         highTemp: null
-            //     },
-            //     {
-            //         day : 3,
-            //         dayName: null,
-            //         weatherIcon: null,
-            //         highTemp: null
-            //     },
-            //     {
-            //         day : 4,
-            //         dayName: null,
-            //         weatherIcon: null,
-            //         highTemp: null
-            //     },
-            //     {
-            //         day : 5,
-            //         dayName: null,
-            //         weatherIcon: null,
-            //         highTemp: null
-            //     },
-
-            // ]
-        
-            // dayOneDayName: null,
-            // dayOneWeatherIcon: null,
-            // dayOneConditions : null,
-            // dayOneHighTemp : null,
-          
-            // dayTwoDayName: null,
-            // dayTwoWeatherIcon: null,
-            // dayTwoConditions : null,
-            // dayTwoHighTemp : null,
-
-            // dayThreeDayName: null,
-            // dayThreeWeatherIcon: null,
-            // dayThreeConditions : null,
-            // dayThreeHighTemp : null,
-
-            // dayFourDayName: null,
-            // dayFourWeatherIcon: null,
-            // dayFourConditions : null,
-            // dayFourHighTemp : null,
-
-            // dayFiveDayName: null,
-            // dayFiveWeatherIcon: null,
-            // dayFiveConditions : null,
-            // dayFiveHighTemp : null
-                  
         }
 
         this.showLongRangeForecast = this.showLongRangeForecast.bind(this);
@@ -99,7 +38,6 @@ export default class WeatherMain extends Component {
     }
     
     
-
     render() {
         return (
             <div>
