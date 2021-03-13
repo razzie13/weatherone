@@ -188,4 +188,36 @@
 .long-range-forecast .long-range-weather-info .long-range-weather-temperature h3 {
   margin-right: 1rem;
 }
+
+.precip-chart {
+  padding: 2px;
+  padding: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.precip-chart .precipitation {
+  background-color: #2e86de;
+  height: 30px;
+  width: 1.2%;
+}
+
+.precip-chart .no-precipitation {
+  background-color: #c8d6e5;
+  height: 30px;
+  width: 1.2%;
+}
+
+h3#rain-forecast {
+  margin-bottom: 0;
+  margin-top: -10px;
+}
 /*# sourceMappingURL=layout.css.map */

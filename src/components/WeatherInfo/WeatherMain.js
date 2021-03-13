@@ -83,6 +83,7 @@ export default class WeatherMain extends Component {
 
                     {this.state.hourlyForecast ?
                         <HourlyForecast
+                        minuteData={this.state.minuteData}
                         hourlyData={this.state.hourlyData}
                         />
                     : null}

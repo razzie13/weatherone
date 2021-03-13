@@ -14,11 +14,15 @@ import { faWater } from '@fortawesome/free-solid-svg-icons'
 import { faMoon } from '@fortawesome/free-solid-svg-icons'
 import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 
+import MinuteForecast from './MinuteForecast'
+
 
 export default function HourlyForecast(props) {    
 
     return (
         <>
+            <MinuteForecast minuteData={props.minuteData} />
+
             {props.hourlyData.slice(1).map((forecast) => (
 
             <div key={uuidv4()} className={['app-section-full-width', 'long-range-forecast', 
