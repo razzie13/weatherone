@@ -171,7 +171,8 @@ export default function TodayForecast(props) {
                                 props.id === 'high-low' ? temperatureClassName : null ||
                                 props.id === 'temp-feels-like' ? temperatureClassName : null ||
                                 props.id === 'wind-info' ? 'rain-coming' : null ||
-                                props.id === 'uv-index-today' ? uvClassName : null] 
+                                props.id === 'uv-index-today' ? uvClassName : null,
+                                props.id === 'sunset-time' ? '' : null] 
 
     return (
         <div id={idClasses.join('')} className={classNameClasses.join(' ')}>
@@ -185,6 +186,10 @@ export default function TodayForecast(props) {
             {props.id === 'uv-index-today' ? <><FontAwesomeIcon icon={faGlasses} /><h3>UV Index: {props.maxValue}</h3></> : null}
 
             {props.id === 'wind-info' ? <><FontAwesomeIcon icon={faWind} /><h3>Wind Speed: {props.minValue} KM/H {deg}</h3></> : null}
+
+            {props.id === 'sunset-time' ? <h3>Sunset: {new Date(props.maxValue * 1000).toLocaleTimeString('en-us')}</h3> : null}
+
+            {/* <h4>{new Date(forecast.dt * 1000).toLocaleDateString('en-us', { weekday: 'long'})}</h4> */}
 
 
             {/* Show FontAwesome Icon that coorelates with weather conditions code */}

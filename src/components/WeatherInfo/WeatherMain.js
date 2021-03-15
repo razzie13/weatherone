@@ -34,6 +34,7 @@ export default class WeatherMain extends Component {
             todayWindGust: null,
             todayWindDirection: null,
             todayUVHigh: null,
+            todaySunsetTime: null,
 
             minuteData: [],
 
@@ -96,6 +97,7 @@ export default class WeatherMain extends Component {
                         todayWindSpeed={this.state.todayWindSpeed}
                         todayWindDirection={this.state.todayWindDirection}
                         todayUVHigh={this.state.todayUVHigh}
+                        todaySunsetTime={this.state.todaySunsetTime}
 
                     />
                     : null } 
@@ -166,6 +168,7 @@ export default class WeatherMain extends Component {
                 todayWindGust: null,
                 todayWindDirection: res.data.daily[0].wind_deg,
                 todayUVHigh: Math.round(res.data.daily[0].uvi),
+                todaySunsetTime : res.data.current.sunset,
 
                 // Minute Data
 

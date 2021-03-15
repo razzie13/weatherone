@@ -221,6 +221,11 @@ h3#rain-forecast {
   margin-top: -10px;
 }
 
+#sunset-time {
+  background-color: #000025;
+  color: white;
+}
+
 #high-low, #uv-index-today, #wind-info, #temp-feels-like {
   display: -webkit-box;
   display: -ms-flexbox;

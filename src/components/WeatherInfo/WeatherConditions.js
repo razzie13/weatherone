@@ -23,6 +23,8 @@ export default function WeatherConditions(props) {
                 <TodayForecast id="temp-feels-like" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon={null} maxValue={props.todayFeelsLikeTemp} minValue={props.todayHigh} />
                 <TodayForecast id="wind-info" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon='wind-icon' maxValue={props.todayWindDirection} minValue={props.todayWindSpeed} />
                 <TodayForecast id="uv-index-today" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon='uv-icon' maxValue={props.todayUVHigh} minValue={null} />
+                <TodayForecast id="sunset-time" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon={null} maxValue={props.todaySunsetTime} minValue={null} />
+
         </div>
     )
 }
