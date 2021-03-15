@@ -69,7 +69,7 @@ export default function TodayForecast(props) {
     if (props.maxValue < 0) {temperatureClassName = 'zero'}
 
     if (props.maxValue < -1) {temperatureClassName = 'minus-one'}
-    if (props.maxValue < -2) {temperatureClassName = 'minus-twi'}
+    if (props.maxValue < -2) {temperatureClassName = 'minus-two'}
     if (props.maxValue < -3) {temperatureClassName = 'minus-three'}
     if (props.maxValue < -4) {temperatureClassName = 'minus-four'}
     if (props.maxValue < -5) {temperatureClassName = 'minus-five'}
@@ -165,7 +165,6 @@ export default function TodayForecast(props) {
         deg = "no data";
     }
 
-
     let idClasses = [props.id]
     let classNameClasses = ['app-section-full-width', 'day-outlook', 'text-center', 
                                 props.id === 'high-low' ? temperatureClassName : null ||
@@ -187,9 +186,16 @@ export default function TodayForecast(props) {
 
             {props.id === 'wind-info' ? <><FontAwesomeIcon icon={faWind} /><h3>Wind Speed: {props.minValue} KM/H {deg}</h3></> : null}
 
-            {props.id === 'sunset-time' ? <h3>Sunset: {new Date(props.maxValue * 1000).toLocaleTimeString('en-us')}</h3> : null}
-
-            {/* <h4>{new Date(forecast.dt * 1000).toLocaleDateString('en-us', { weekday: 'long'})}</h4> */}
+            {props.id === 'sunset-time' ? 
+            
+                Date.now() < props.maxValue ? 
+                
+                <>
+                  <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                  <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                </> : 
+                    
+                <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></> : null} 
 
 
             {/* Show FontAwesome Icon that coorelates with weather conditions code */}
@@ -209,7 +215,7 @@ export default function TodayForecast(props) {
             (props.icon === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
             (props.icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
             (props.icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null),
-                <h3><span class="high-temp">High: {props.maxValue} </span> <span class="low-temp">Low: {props.minValue}</span></h3>
+                <h3><span className="high-temp">High: {props.maxValue} </span> <span className="low-temp">Low: {props.minValue}</span></h3>
         
             ]
             : null 

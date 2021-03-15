@@ -226,7 +226,11 @@ h3#rain-forecast {
   color: white;
 }
 
-#high-low, #uv-index-today, #wind-info, #temp-feels-like {
+#sunset-time h3:nth-child(2) {
+  margin-right: 1rem;
+}
+
+#high-low, #uv-index-today, #wind-info, #temp-feels-like, #sunset-time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -242,27 +246,27 @@ h3#rain-forecast {
           justify-content: center;
 }
 
-#high-low h3, #uv-index-today h3, #wind-info h3, #temp-feels-like h3 {
+#high-low h3, #uv-index-today h3, #wind-info h3, #temp-feels-like h3, #sunset-time h3 {
   margin-left: 0.5rem;
 }
 
-#high-low h3 span, #uv-index-today h3 span, #wind-info h3 span, #temp-feels-like h3 span {
+#high-low h3 span, #uv-index-today h3 span, #wind-info h3 span, #temp-feels-like h3 span, #sunset-time h3 span {
   padding: 8px;
   margin-left: 1rem;
   border-radius: 5px;
 }
 
-#high-low h3 .low-temp, #uv-index-today h3 .low-temp, #wind-info h3 .low-temp, #temp-feels-like h3 .low-temp {
+#high-low h3 .low-temp, #uv-index-today h3 .low-temp, #wind-info h3 .low-temp, #temp-feels-like h3 .low-temp, #sunset-time h3 .low-temp {
   color: white;
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-#high-low h3 .high-temp, #uv-index-today h3 .high-temp, #wind-info h3 .high-temp, #temp-feels-like h3 .high-temp {
+#high-low h3 .high-temp, #uv-index-today h3 .high-temp, #wind-info h3 .high-temp, #temp-feels-like h3 .high-temp, #sunset-time h3 .high-temp {
   color: black;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-#high-low svg, #uv-index-today svg, #wind-info svg, #temp-feels-like svg {
+#high-low svg, #uv-index-today svg, #wind-info svg, #temp-feels-like svg, #sunset-time svg {
   font-size: 1.5rem;
 }
 /*# sourceMappingURL=layout.css.map */
