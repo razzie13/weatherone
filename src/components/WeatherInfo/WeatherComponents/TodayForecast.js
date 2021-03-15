@@ -14,6 +14,8 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons'
 import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 import { faThermometerEmpty} from '@fortawesome/free-solid-svg-icons'
 import { faThermometerFull } from '@fortawesome/free-solid-svg-icons'
+import { faGlasses } from '@fortawesome/free-solid-svg-icons'
+import { faWind } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function TodayForecast(props) {
@@ -66,39 +68,39 @@ export default function TodayForecast(props) {
     if (props.maxValue < 1) {temperatureClassName = 'one'}
     if (props.maxValue < 0) {temperatureClassName = 'zero'}
 
-    if (props.maxValue < -1) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -2) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -3) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -4) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -5) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -6) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -7) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -8) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -9) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -10) {temperatureClassName = 'minus-'}
+    if (props.maxValue < -1) {temperatureClassName = 'minus-one'}
+    if (props.maxValue < -2) {temperatureClassName = 'minus-twi'}
+    if (props.maxValue < -3) {temperatureClassName = 'minus-three'}
+    if (props.maxValue < -4) {temperatureClassName = 'minus-four'}
+    if (props.maxValue < -5) {temperatureClassName = 'minus-five'}
+    if (props.maxValue < -6) {temperatureClassName = 'minus-six'}
+    if (props.maxValue < -7) {temperatureClassName = 'minus-seven'}
+    if (props.maxValue < -8) {temperatureClassName = 'minus-eight'}
+    if (props.maxValue < -9) {temperatureClassName = 'minus-nine'}
+    if (props.maxValue < -10) {temperatureClassName = 'minus-ten'}
 
-    if (props.maxValue < -11) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -12) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -13) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -14) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -15) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -16) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -17) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -18) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -19) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -20) {temperatureClassName = 'minus-'}
+    if (props.maxValue < -11) {temperatureClassName = 'minus-eleven'}
+    if (props.maxValue < -12) {temperatureClassName = 'minus-twelve'}
+    if (props.maxValue < -13) {temperatureClassName = 'minus-thirteen'}
+    if (props.maxValue < -14) {temperatureClassName = 'minus-fourteen'}
+    if (props.maxValue < -15) {temperatureClassName = 'minus-fifteen'}
+    if (props.maxValue < -16) {temperatureClassName = 'minus-sixteen'}
+    if (props.maxValue < -17) {temperatureClassName = 'minus-seventeen'}
+    if (props.maxValue < -18) {temperatureClassName = 'minus-eighteen'}
+    if (props.maxValue < -19) {temperatureClassName = 'minus-nineteen'}
+    if (props.maxValue < -20) {temperatureClassName = 'minus-twenty'}
 
-    if (props.maxValue < -21) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -22) {temperatureClassName = 'minus-'}
-    if (props.maxValue < -23) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue < -24) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue < -25) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue < -26) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue < -27) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue < -28) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue < -29) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue < -30) {temperatureClassName = 'thirty-eight'}
-    if (props.maxValue <= -31) {temperatureClassName = 'thirty-eight'}
+    if (props.maxValue < -21) {temperatureClassName = 'minus-twenty-one'}
+    if (props.maxValue < -22) {temperatureClassName = 'minus-twenty-two'}
+    if (props.maxValue < -23) {temperatureClassName = 'minus-twenty-three'}
+    if (props.maxValue < -24) {temperatureClassName = 'minus-twenty-four'}
+    if (props.maxValue < -25) {temperatureClassName = 'minus-twenty-five'}
+    if (props.maxValue < -26) {temperatureClassName = 'minus-twenty-six'}
+    if (props.maxValue < -27) {temperatureClassName = 'minus-twenty-seven'}
+    if (props.maxValue < -28) {temperatureClassName = 'minus-twenty-eight'}
+    if (props.maxValue < -29) {temperatureClassName = 'minus-twenty-nine'}
+    if (props.maxValue < -30) {temperatureClassName = 'minus-thirty'}
+    if (props.maxValue <= -31) {temperatureClassName = 'minus-thirty'}
 
     let uvClassName
     if (props.maxValue > 10) {uvClassName = 'extreme-uv'}
@@ -106,6 +108,62 @@ export default function TodayForecast(props) {
     if (props.maxValue < 8) {uvClassName = 'twenty-seven'}
     if (props.maxValue < 6) {uvClassName = 'nineteen'}
     if (props.maxValue < 3) {uvClassName = 'seven'}
+
+    // wind direction from directional degree props
+
+    var deg = Math.floor(props.maxValue);
+    switch (true) {
+        case deg >= 360 && deg <= 21:
+        deg = "N";
+        break;
+        case deg >= 22 && deg <= 44:
+        deg = "NNE";
+        break;
+        case deg >= 45 && deg <= 66:
+        deg = "NE";
+        break;
+        case deg >= 67 && deg <= 89:
+        deg = "ENE";
+        break;
+        case deg >= 90 && deg <= 111:
+        deg = "E";
+        break;
+        case deg >= 112 && deg <= 134:
+        deg = "ESE";
+        break;
+        case deg >= 135 && deg <= 156:
+        deg = "SE";
+        break;
+        case deg >= 157 && deg <= 179:
+        deg = "SSE";
+        break;
+        case deg >= 180 && deg <= 201:
+        deg = "S";
+        break;
+        case deg >= 202 && deg <= 224:
+        deg = "SSW";
+        break;
+        case deg >= 225 && deg <= 246:
+        deg = "SW";
+        break;
+        case deg >= 247 && deg <= 269:
+        deg = "WSW";
+        break;
+        case deg >= 270 && deg <= 291:
+        deg = "W";
+        break;
+        case deg >= 292 && deg <= 314:
+        deg = "WNW";
+        break;
+        case deg >= 315 && deg <= 336:
+        deg = "NW";
+        break;
+        case deg >= 337 && deg <= 359:
+        deg = "NNW";
+        break;
+        default:
+        deg = "no data";
+    }
 
 
     let idClasses = [props.id]
@@ -120,16 +178,13 @@ export default function TodayForecast(props) {
 
             {/* Conditionally Render Information  */}
 
-
-            {/* {props.id === 'high-low' ? <h3>Wind Speed: {props.minValue} KM/H {props.maxValue}</h3> : null} */}
-
             {props.id === 'temp-feels-like' ? 
                     (props.maxValue > props.minValue ? <><FontAwesomeIcon icon={faThermometerFull} /><h3>Humidex: {props.maxValue}</h3></> : <><FontAwesomeIcon icon={faThermometerEmpty} /><h3>WindChill: {props.maxValue}</h3></>) : null
                     }
 
-            {props.id === 'uv-index-today' ? <h3>UV Index: {props.maxValue}</h3> : null}
+            {props.id === 'uv-index-today' ? <><FontAwesomeIcon icon={faGlasses} /><h3>UV Index: {props.maxValue}</h3></> : null}
 
-            {props.id === 'wind-info' ? <h3>Wind Speed: {props.minValue} KM/H {props.maxValue}</h3> : null}
+            {props.id === 'wind-info' ? <><FontAwesomeIcon icon={faWind} /><h3>Wind Speed: {props.minValue} KM/H {deg}</h3></> : null}
 
 
             {/* Show FontAwesome Icon that coorelates with weather conditions code */}
@@ -137,6 +192,7 @@ export default function TodayForecast(props) {
             {
             props.id === "high-low" ? 
            
+            [
             (props.icon === '01d' ? <FontAwesomeIcon icon={faSun} /> : null) ||
             (props.icon === '02d' ? <FontAwesomeIcon icon={faCloudSun} /> : null) ||
             (props.icon === '03d' ? <FontAwesomeIcon icon={faCloudSun} /> : null) ||
@@ -147,10 +203,10 @@ export default function TodayForecast(props) {
             (props.icon === '13d' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
             (props.icon === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
             (props.icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
-            (props.icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null)
-
+            (props.icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null),
+                <h3><span class="high-temp">High: {props.maxValue} </span> <span class="low-temp">Low: {props.minValue}</span></h3>
         
-
+            ]
             : null 
             }
 

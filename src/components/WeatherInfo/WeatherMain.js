@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+
 import WeatherConditions from './WeatherConditions'
 import HourlyForecast from './WeatherComponents/HourlyForecast'
 import LongRangeForecast from './WeatherComponents/LongRangeForecast'
@@ -24,6 +25,15 @@ export default class WeatherMain extends Component {
             sunTime : null,
             umbrellaToday : null,
             jacketToday : null,
+
+            todayWeatherIcon: null,
+            todayHigh: null,
+            todayLow: null,
+            todayFeelsLikeTemp: null,
+            todayWindSpeed: null,
+            todayWindGust: null,
+            todayWindDirection: null,
+            todayUVHigh: null,
 
             minuteData: [],
 
@@ -78,6 +88,15 @@ export default class WeatherMain extends Component {
                         humidity={this.state.humidity} 
                         umbrellaToday={this.state.umbrellaToday} 
                         jacketToday={this.state.jacketToday}
+
+                        todayWeatherIcon={this.state.todayWeatherIcon}
+                        todayHigh={this.state.todayHigh}
+                        todayLow={this.state.todayLow}
+                        todayFeelsLikeTemp={this.state.todayFeelsLikeTemp}
+                        todayWindSpeed={this.state.todayWindSpeed}
+                        todayWindDirection={this.state.todayWindDirection}
+                        todayUVHigh={this.state.todayUVHigh}
+
                     />
                     : null } 
 
@@ -138,6 +157,15 @@ export default class WeatherMain extends Component {
               
                 tomorrowNightLowTemp : Math.round(res.data.daily[1].temp.night),
                 tomorrowNightFeelsLike : Math.round(res.data.daily[1].feels_like.night),
+
+                todayWeatherIcon: res.data.daily[0].weather[0].icon,
+                todayHigh: Math.round(res.data.daily[0].temp.day),
+                todayLow: Math.round(res.data.daily[0].temp.night),
+                todayFeelsLikeTemp: Math.round(res.data.daily[0].feels_like.day),
+                todayWindSpeed: Math.round(res.data.daily[0].wind_speed),
+                todayWindGust: null,
+                todayWindDirection: res.data.daily[0].wind_deg,
+                todayUVHigh: Math.round(res.data.daily[0].uvi),
 
                 // Minute Data
 

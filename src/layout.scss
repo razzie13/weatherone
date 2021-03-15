@@ -188,3 +188,34 @@ h3#rain-forecast {
     margin-bottom: 0;
     margin-top: -10px;
 }
+
+#high-low, #uv-index-today, #wind-info, #temp-feels-like  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    h3  {
+        margin-left: 0.5rem;
+
+        span  {
+            padding: 8px;
+            margin-left: 1rem;
+            border-radius: 5px;
+        }
+
+        .low-temp  {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .high-temp  {
+            color: black;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    svg  {
+        font-size: 1.5rem;
+    }
+}

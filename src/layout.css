@@ -220,4 +220,44 @@ h3#rain-forecast {
   margin-bottom: 0;
   margin-top: -10px;
 }
+
+#high-low, #uv-index-today, #wind-info, #temp-feels-like {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#high-low h3, #uv-index-today h3, #wind-info h3, #temp-feels-like h3 {
+  margin-left: 0.5rem;
+}
+
+#high-low h3 span, #uv-index-today h3 span, #wind-info h3 span, #temp-feels-like h3 span {
+  padding: 8px;
+  margin-left: 1rem;
+  border-radius: 5px;
+}
+
+#high-low h3 .low-temp, #uv-index-today h3 .low-temp, #wind-info h3 .low-temp, #temp-feels-like h3 .low-temp {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#high-low h3 .high-temp, #uv-index-today h3 .high-temp, #wind-info h3 .high-temp, #temp-feels-like h3 .high-temp {
+  color: black;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+#high-low svg, #uv-index-today svg, #wind-info svg, #temp-feels-like svg {
+  font-size: 1.5rem;
+}
 /*# sourceMappingURL=layout.css.map */
