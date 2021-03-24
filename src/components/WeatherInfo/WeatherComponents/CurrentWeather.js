@@ -1,18 +1,7 @@
 import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { faSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloudSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloud } from '@fortawesome/free-solid-svg-icons'
-import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
-import { faCloudRain } from '@fortawesome/free-solid-svg-icons'
-import { faBolt } from '@fortawesome/free-solid-svg-icons'
-import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
-import { faWater } from '@fortawesome/free-solid-svg-icons'
-import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
-
+import { faSun, faCloudSun, faCloud, faCloudShowersHeavy, faCloudRain, faBolt, faSnowflake, faWater, faMoon, faCloudMoon } from '@fortawesome/free-solid-svg-icons'
 
 export default function GetWeatherDataCurrent(props) {
 
@@ -133,6 +122,7 @@ export default function GetWeatherDataCurrent(props) {
             (props.value === '13d' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
             (props.value === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
             (props.value === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
+            (props.value === '02n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
             (props.value === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null)
 
 

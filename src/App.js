@@ -1,5 +1,6 @@
 // node_modules
 import React, { Component } from 'react'
+import { v4 as uuidv4} from 'uuid'
 
 // css
 import './colours.css';
@@ -23,12 +24,12 @@ constructor(props) {
 
   render() {
     return (
-        <div className="App">
+        <div className="App" key={uuidv4()}>
           <header className="App-header">
             <PageTitle cityName={this.state.cityName}/>
           </header>
-          <main>
-            <WeatherMain />
+          <main key={uuidv4()}>
+            <WeatherMain key={uuidv4()} />
           </main>
           <footer>
             <Footer />

@@ -2,17 +2,7 @@ import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { faSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloudSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloud } from '@fortawesome/free-solid-svg-icons'
-import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
-import { faCloudRain } from '@fortawesome/free-solid-svg-icons'
-import { faBolt } from '@fortawesome/free-solid-svg-icons'
-import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
-import { faWater } from '@fortawesome/free-solid-svg-icons'
-import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faCloudSun , faCloud, faCloudShowersHeavy, faCloudRain, faBolt, faSnowflake, faWater, faMoon, faCloudMoon, } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function LongRangeForecast(props) {    
@@ -122,6 +112,7 @@ export default function LongRangeForecast(props) {
                         (forecast.weather[0].icon === '13d' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
                         (forecast.weather[0].icon === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
                         (forecast.weather[0].icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
+                        (forecast.weather[0].icon === '02n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
                         (forecast.weather[0].icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null)
 
                     }

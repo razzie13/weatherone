@@ -1,21 +1,8 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import { faSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloudSun } from '@fortawesome/free-solid-svg-icons'
-import { faCloud } from '@fortawesome/free-solid-svg-icons'
-import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
-import { faCloudRain } from '@fortawesome/free-solid-svg-icons'
-import { faBolt } from '@fortawesome/free-solid-svg-icons'
-import { faSnowflake } from '@fortawesome/free-solid-svg-icons'
-import { faWater } from '@fortawesome/free-solid-svg-icons'
-import { faMoon } from '@fortawesome/free-solid-svg-icons'
-import { faCloudMoon } from '@fortawesome/free-solid-svg-icons'
-import { faThermometerEmpty} from '@fortawesome/free-solid-svg-icons'
-import { faThermometerFull } from '@fortawesome/free-solid-svg-icons'
-import { faGlasses } from '@fortawesome/free-solid-svg-icons'
-import { faWind } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faCloudSun , faCloud, faCloudShowersHeavy, faCloudRain, faBolt, faSnowflake, faWater, faMoon, faCloudMoon, faThermometerEmpty, faThermometerFull, faGlasses, faWind } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function TodayForecast(props) {
@@ -187,15 +174,17 @@ export default function TodayForecast(props) {
             {props.id === 'wind-info' ? <><FontAwesomeIcon icon={faWind} /><h3>Wind Speed: {props.minValue} KM/H {deg}</h3></> : null}
 
             {props.id === 'sunset-time' ? 
-            
+
                 Date.now() < props.maxValue ? 
                 
                 <>
-                  <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
-                  <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
                 </> : 
                     
-                <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></> : null} 
+                <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></> 
+                
+            : null} 
 
 
             {/* Show FontAwesome Icon that coorelates with weather conditions code */}
@@ -214,8 +203,9 @@ export default function TodayForecast(props) {
             (props.icon === '13d' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
             (props.icon === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
             (props.icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
+            (props.icon === '02n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
             (props.icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null),
-                <h3><span className="high-temp">High: {props.maxValue} </span> <span className="low-temp">Low: {props.minValue}</span></h3>
+                <h3 key={uuidv4()}><span key={uuidv4()} className="high-temp">High: {props.maxValue} </span> <span key={uuidv4()} className="low-temp">Low: {props.minValue}</span></h3>
         
             ]
             : null 

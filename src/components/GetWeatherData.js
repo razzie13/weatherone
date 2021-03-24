@@ -5,6 +5,7 @@ import CityName from './CityName';
 
 
 export default class GetWeatherData extends React.Component  {
+    
     state = {
         conditions : '',
         conditionsDescription : '',
@@ -23,16 +24,18 @@ export default class GetWeatherData extends React.Component  {
         tomorrowNightLowTemp : '',
         tomorrowNightFeelsLike : ''
         
-        //error : '',
-        //isBusy : false
-        
     }
 
-    //if (this.state.uvi >= 7)  {document.getElementById('current-uv-index').classList.add('uv-very-high')};
+
 
     componentDidMount() {
         console.log('function componentDidMount');
+
+        (navigator && navigator.geolocation ?
+        axios.get(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`) :
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?lat=43.4516&lon=-80.4925&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
+            )
+
 
         .then(res => {
             console.log(res)

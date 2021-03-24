@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-
+import { v4 as uuidv4 } from 'uuid'
 
 import WeatherConditions from './WeatherConditions'
 import HourlyForecast from './WeatherComponents/HourlyForecast'
@@ -74,13 +74,14 @@ export default class WeatherMain extends Component {
     
     render() {
         return (
-            <div>
+            <div key={uuidv4()}>
                 <div className="app-section-full-width right-now-long-range">
                     <h3 className={this.state.rightNow ? 'active' : 'inactive'} onClick={this.showCurrentConditions}>Right Now</h3>
                     <h3 className={this.state.hourlyForecast ? 'active' : 'inactive'} onClick={this.showHourlyForecast}>Hourly</h3>
                     <h3 className={this.state.longRangeForecast ? 'active' : 'inactive'} onClick={this.showLongRangeForecast}>Long Range</h3></div>
                 {this.state.rightNow ?
                         <WeatherConditions
+                        key={uuidv4()}
                         conditions={this.state.conditions} 
                         conditionsDescription={this.state.conditionsDescription} 
                         temperature={this.state.temperature} 
@@ -121,24 +122,15 @@ export default class WeatherMain extends Component {
     }
 
 
-    componentDidMount()  {
+    componentDidMount()  { 
 
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=43.4516&lon=-80.4925&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
+
+        //axios.get(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
 
         .then((res) => {
             console.log(res)
             console.log(this.state)
-
-            let precipitation;
-
-            for (let i = 0; i < (res.data.hourly.length - 36); i++)  {
-                   if (res.data.hourly[i].pop >= 80)  {
-                       precipitation = true
-                   } 
-                   if (res.data.hourly[i].pop < 80)  {
-                       precipitation = false
-                   }
-               }
 
             this.setState({
 
@@ -151,7 +143,7 @@ export default class WeatherMain extends Component {
                 uvi : Math.round(res.data.current.uvi),
                 humidity : (res.data.current.humidity),
                 sunTime : null,
-                umbrellaToday : precipitation,
+                umbrellaToday : res.data.daily[0].pop,
                 jacketToday : null,
             
                 tomorrowHighTemp : Math.round(res.data.daily[1].temp.max),
