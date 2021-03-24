@@ -131,7 +131,7 @@ export default function GetWeatherDataCurrent(props) {
             {/* Add Percent Sign to Humidity Value, Disallow Weather Condition Code Rendering */}
             
             {props.id === 'humidity' ? props.value + '%' : (props.id === 'conditions' ? null : props.value)}
-            <div className="app-section-data-bottom"><span>{props.id === "temperature" ? 'feels like: ' + props.description : props.description}</span></div>
+            <div className="app-section-data-bottom"><span>{props.id === "temperature" ? 'feels like: ' + props.description + '°' : props.description}</span></div>
         </div>
     )
 }

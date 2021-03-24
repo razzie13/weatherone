@@ -166,12 +166,12 @@ export default function TodayForecast(props) {
             {/* Conditionally Render Information  */}
 
             {props.id === 'temp-feels-like' ? 
-                    (props.maxValue > props.minValue ? <><FontAwesomeIcon icon={faThermometerFull} /><h3>Humidex: {props.maxValue}</h3></> : <><FontAwesomeIcon icon={faThermometerEmpty} /><h3>WindChill: {props.maxValue}</h3></>) : null
+                    (props.maxValue > props.minValue ? <><FontAwesomeIcon icon={faThermometerFull} /><h3>Humidex: {props.maxValue}&deg;</h3></> : <><FontAwesomeIcon icon={faThermometerEmpty} /><h3>Feels Like: {props.maxValue}&deg;</h3></>) : null
                     }
 
             {props.id === 'uv-index-today' ? <><FontAwesomeIcon icon={faGlasses} /><h3>UV Index: {props.maxValue}</h3></> : null}
 
-            {props.id === 'overnight-low' ? <><FontAwesomeIcon icon={faMoon} /><h3>Low: {props.maxValue}</h3></> : null}
+            {props.id === 'overnight-low' ? <><FontAwesomeIcon icon={faMoon} /><h3>Low: {props.maxValue}&deg;</h3></> : null}
 
 
             {props.id === 'wind-info' ? <><FontAwesomeIcon icon={faWind} /><h3>Wind Speed: {props.minValue} KM/H {deg}</h3></> : null}
@@ -208,7 +208,7 @@ export default function TodayForecast(props) {
             (props.icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
             (props.icon === '02n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
             (props.icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null),
-                <h3 key={uuidv4()}><span key={uuidv4()} className="high-temp">High: {props.maxValue} </span> <span key={uuidv4()} className="low-temp">Low: {props.minValue}</span></h3>
+                <h3 key={uuidv4()}><span key={uuidv4()} className="high-temp">High: {props.maxValue}&deg; </span> <span key={uuidv4()} className="low-temp">Low: {props.minValue}&deg;</span></h3>
         
             ]
             : null 
