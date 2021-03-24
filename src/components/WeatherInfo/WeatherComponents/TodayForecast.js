@@ -171,6 +171,9 @@ export default function TodayForecast(props) {
 
             {props.id === 'uv-index-today' ? <><FontAwesomeIcon icon={faGlasses} /><h3>UV Index: {props.maxValue}</h3></> : null}
 
+            {props.id === 'overnight-low' ? <><FontAwesomeIcon icon={faMoon} /><h3>Low: {props.maxValue}</h3></> : null}
+
+
             {props.id === 'wind-info' ? <><FontAwesomeIcon icon={faWind} /><h3>Wind Speed: {props.minValue} KM/H {deg}</h3></> : null}
 
             {props.id === 'sunset-time' ? 

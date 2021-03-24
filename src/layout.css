@@ -269,4 +269,9 @@ h3#rain-forecast {
 #high-low svg, #uv-index-today svg, #wind-info svg, #temp-feels-like svg, #sunset-time svg {
   font-size: 1.5rem;
 }
+
+.overnight-temps {
+  color: white;
+  background-color: black;
+}
 /*# sourceMappingURL=layout.css.map */
