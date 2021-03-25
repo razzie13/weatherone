@@ -75,7 +75,7 @@ export default class WeatherMain extends Component {
     render() {
         return (
             <div key={uuidv4()}>
-                <div className="app-section-full-width right-now-long-range">
+                <div key={uuidv4()} className="app-section-full-width right-now-long-range">
                     <h3 className={this.state.rightNow ? 'active' : 'inactive'} onClick={this.showCurrentConditions}>Right Now</h3>
                     <h3 className={this.state.hourlyForecast ? 'active' : 'inactive'} onClick={this.showHourlyForecast}>Hourly</h3>
                     <h3 className={this.state.longRangeForecast ? 'active' : 'inactive'} onClick={this.showLongRangeForecast}>Long Range</h3></div>

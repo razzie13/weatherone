@@ -12,12 +12,12 @@ export default function WeatherConditions(props) {
 
     return (
         <div key={uuidv4()}>
-            <div className="app-section-half-width-container">
+            <div key={uuidv4()} className="app-section-half-width-container">
                 <CurrentWeather key={uuidv4()} id="conditions" value={props.conditions} description={props.conditionsDescription}/>
                 <CurrentWeather key={uuidv4()} id="temperature" value={props.temperature} description={props.feelsLike}/>
             </div>
 
-            <div className="app-section-full-width"><h3>Your Day at a Glance:</h3></div> 
+            <div key={uuidv4()} className="app-section-full-width"><h3>Your Day at a Glance:</h3></div> 
                 <DayAtAGlance key={uuidv4()} name={'jacket'} styling={[cssStyles, props.temperature > 16 ? 'jacket-no-need' : 'jacket-need'].join(' ')} info={props.temperature}/>
                 <DayAtAGlance key={uuidv4()} name={'umbrella'} styling={[cssStyles, props.umbrellaToday > 0.7 ? 'rain-coming' : 'no-rain-coming'].join(' ')} info={props.umbrellaToday}/>
                 {props.temperature > 21 ?

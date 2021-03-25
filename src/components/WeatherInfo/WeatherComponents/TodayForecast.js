@@ -178,16 +178,23 @@ export default function TodayForecast(props) {
 
             {props.id === 'sunset-time' ? 
 
-                Date.now() < props.maxValue ? 
-                
-                <>
-                <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
-                <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
-                </> : 
-                    
-                <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></> 
-                
-            : null} 
+                (Date.now() > props.minValue ? 
+            
+                    (Date.now() < props.maxValue ? 
+                                        
+                        <>
+                            <FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3>
+                        </>  
+                        :    
+                        <>
+                            <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                            <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                        </> 
+                    )
+                   
+                : null)
+
+            : null}
 
 
             {/* Show FontAwesome Icon that coorelates with weather conditions code */}
