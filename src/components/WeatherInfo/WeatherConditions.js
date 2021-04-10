@@ -26,8 +26,8 @@ export default function WeatherConditions(props) {
             }
 
 
-            {/* {Date.now() < props.todaySunsetTime ?  */}
-                {/* <> */}
+            {Date.now() < props.todaySunsetTime ?
+                <>
                 <div className="app-section-full-width"><h3>Today's Forecast:</h3></div>   
 
                 <TodayForecast key={uuidv4()} id="high-low" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon={props.todayWeatherIcon} maxValue={props.todayHigh} minValue={props.todayLow}/>
@@ -38,13 +38,13 @@ export default function WeatherConditions(props) {
                 <TodayForecast key={uuidv4()} id="uv-index-today" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon='uv-icon' maxValue={props.todayUVHigh} minValue={null} />
                 
                 <TodayForecast key={uuidv4()} id="sunset-time" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon={null} maxValue={props.todaySunriseTime} minValue={props.todaySunsetTime} />
-                {/* </> 
+                </> 
                  : 
                  <>
                  <div className="app-section-full-width"><h3>Tonight's Forecast:</h3></div>   
-                 <TodayForecast key={uuidv4()} id="overnight-low" styling={[cssStyles, 'overnight-temps'].join(' ')} icon={null} maxValue={props.todayLow} minValue={null}/>
+                 <TodayForecast key={uuidv4()} id="overnight-low" styling={'app-section-full-width day-outlook text-center overnight-temps'} icon={null} maxValue={props.todayLow} minValue={null}/>
                  </>
-            } */}
+            }
 
         </div>
     )

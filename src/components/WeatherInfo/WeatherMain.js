@@ -12,6 +12,9 @@ export default class WeatherMain extends Component {
         super(props)
     
         this.state = {
+            currentLatitude: null,
+            currentLongitude: null,
+
             rightNow: true,
             hourlyForecast: false,
             longRangeForecast: false,
@@ -90,7 +93,8 @@ export default class WeatherMain extends Component {
                         humidity={this.state.humidity} 
                         umbrellaToday={this.state.umbrellaToday} 
                         jacketToday={this.state.jacketToday}
-
+                        currentLatitude={this.props.currentLatitude}
+                        currentLongitude={this.props.currentLongitude}
                         todayWeatherIcon={this.state.todayWeatherIcon}
                         todayHigh={this.state.todayHigh}
                         todayLow={this.state.todayLow}
@@ -123,6 +127,45 @@ export default class WeatherMain extends Component {
 
 
     componentDidMount()  { 
+
+        var options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+          };
+
+        const getLocation = pos => {
+            this.setState({currentLatitude: pos.coords.latitude, currentLongitude: pos.coords.longitude}, () => console.log(this.state.currentLatitude + ' ' + this.state.currentLongitude))
+          }
+          
+        const error = err => {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+          }
+          
+          navigator.geolocation.getCurrentPosition(getLocation, error);
+
+        //const showPosition = (position) => {
+            //let latitude = position.coords.latitude
+            //let longitude = position.coords.longitude
+            //console.log(latitude + ' ' + longitude)
+
+            //navigator.geolocation ? navigator.geolocation.getCurrentPosition(showPosition) : null
+            //navigator.geolocation ? console.log(position.coords.latitude + ' ' + position.coords.longitude) : console.log(false)
+       // }
+
+        // let position;
+        // navigator.geolocation ? console.log(coords) : console.log(false)
+
+
+
+        
+        
+
+        localStorage.getItem('weatherone_locations') === null ?
+        localStorage.setItem('weatherone_locations', []) : localStorage.getItem('weatherone_locations')
+        
+        console.log(localStorage.getItem('weatherone_locations'))
+
 
         axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=43.4516&lon=-80.4925&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
 

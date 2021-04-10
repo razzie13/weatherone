@@ -2,7 +2,7 @@ import React from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faCloudSun , faCloud, faCloudShowersHeavy, faCloudRain, faBolt, faSnowflake, faWater, faMoon, faCloudMoon } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faCloudSun , faCloud, faCloudShowersHeavy, faCloudRain, faBolt, faSnowflake, faWater, faMoon, faCloudMoon, faCloudMoonRain } from '@fortawesome/free-solid-svg-icons'
 
 import MinuteForecast from './MinuteForecast'
 
@@ -115,6 +115,7 @@ export default function HourlyForecast(props) {
                         (forecast.weather[0].icon === '11d' ? <FontAwesomeIcon icon={faBolt} /> : null) ||
                         (forecast.weather[0].icon === '13d' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
                         (forecast.weather[0].icon === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
+                        (forecast.weather[0].icon === '10n' ? <FontAwesomeIcon icon={faCloudMoonRain} /> : null) ||
                         (forecast.weather[0].icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
                         (forecast.weather[0].icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
                         (forecast.weather[0].icon === '03n' ? <FontAwesomeIcon icon={faCloud} /> : null) ||

@@ -176,7 +176,7 @@
 }
 
 .long-range-forecast .long-range-weather-info .long-range-weather-icon {
-  width: 80px;
+  width: 100px;
   font-size: 48px;
 }
 
@@ -273,5 +273,23 @@ h3#rain-forecast {
 .overnight-temps {
   color: white;
   background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.overnight-temps svg.svg-inline--fa.fa-moon.fa-w-16 {
+  margin-right: 16px;
+  margin-top: 4px;
 }
 /*# sourceMappingURL=layout.css.map */

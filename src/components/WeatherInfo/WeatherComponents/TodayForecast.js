@@ -158,7 +158,8 @@ export default function TodayForecast(props) {
                                 props.id === 'temp-feels-like' ? temperatureClassName : null ||
                                 props.id === 'wind-info' ? 'rain-coming' : null ||
                                 props.id === 'uv-index-today' ? uvClassName : null,
-                                props.id === 'sunset-time' ? '' : null] 
+                                props.id === 'sunset-time' ? '' : null,
+                                props.id === 'overnight-low' ? 'overnight-temps' : null] 
 
     return (
         <div id={idClasses.join('')} className={classNameClasses.join(' ')}>
@@ -178,7 +179,7 @@ export default function TodayForecast(props) {
 
             {props.id === 'sunset-time' ? 
 
-                (Date.now() > props.minValue ? 
+                
             
                     (Date.now() < props.maxValue ? 
                                         
@@ -192,7 +193,7 @@ export default function TodayForecast(props) {
                         </> 
                     )
                    
-                : null)
+                
 
             : null}
 
