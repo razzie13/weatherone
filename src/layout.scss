@@ -1,0 +1,253 @@
+/* APP HEADER */
+.page-header  {
+    box-sizing: border-box;
+    padding-left: 12px;
+}
+.page-header h3  {
+    margin-top: -24px;
+    padding-bottom: 10px;
+}
+
+.info-bits  {
+    height: 6vh;
+}
+
+.text-center  {
+    text-align: center;
+}
+/* APP SECTIONS */
+.app-section-full-width  {
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+}
+
+.app-section-half-width-container  {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 90vw;
+    margin: auto;
+}
+
+.app-section-half-width  {
+    position: relative;
+    border-radius: 15px;
+    width: 43.5vw;
+    height: 43.5vw;
+    margin-top: 2.5vw;
+    text-align: center;
+    line-height: 42.5vw;
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.app-section-data-top  {
+    position: absolute;
+    border-radius: 15px 15px 0 0;
+    width: 100%;
+    height: 15%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.app-section-data-top span  {
+    position: relative;
+    top: -18.5vw;
+}
+
+.app-section-data-bottom  {
+    position: absolute;
+    border-radius: 0 0 15px 15px;
+    width: 100%;
+    height: 15%;
+    margin-top: -15%;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.app-section-data-bottom span  {
+    position: relative;
+    top: -18.5vw;
+    text-transform: capitalize;
+}
+
+.day-outlook  {
+    padding: 2px;
+}
+
+.full-width-flex  {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.app-section-flex-third  {
+    width: 28vw;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.right-now-long-range {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+
+        h3  {
+            background-color: #FF7765 ;
+            padding: 0.8rem;
+            border-style: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+            width: 31%;
+            margin-top: -8px;
+            transition: background-color 0.5s;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        // h3:nth-child(2)  {
+        //     text-align: right;
+        // }
+
+        .active  {
+            color: white;
+        }
+
+        .inactive  {
+            color: grey;
+            background-color: #FFBDB4;
+        }
+}
+
+.long-range-forecast  {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 1rem 1rem;
+    box-sizing: border-box;
+    color: white;
+
+    .long-range-weather-weekday  {
+
+        h4  {
+            margin-bottom: -2px;
+            margin-top: 10px;
+        }
+    }
+
+    .long-range-weather-info  {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .long-range-weather-icon  {
+            width: 100px;
+            font-size: 48px;
+        }
+
+        .long-range-weather-description  {
+            width: 100%;
+            padding-left: 1rem;
+        }
+
+        .long-range-weather-temperature  {
+            h3  {
+                margin-right: 1rem;
+                
+            }
+        }
+    }
+}
+
+.precip-chart  {
+    padding: 2px;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .precipitation  {
+        background-color: #2e86de;
+        height: 30px;
+        width: 1.2%;
+    }
+
+    .no-precipitation  {
+        background-color: #c8d6e5;
+        height: 30px;
+        width: 1.2%;
+    }
+}
+
+h3#rain-forecast {
+    margin-bottom: 0;
+    margin-top: -10px;
+}
+
+#sunset-time  {
+    background-color: rgb(0, 0, 37);
+    color: white;
+
+    h3:nth-child(2) {
+        margin-right: 1rem;
+    }
+}
+
+#high-low, #uv-index-today, #wind-info, #temp-feels-like, #sunset-time  {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    h3  {
+        margin-left: 0.5rem;
+
+        span  {
+            padding: 8px;
+            margin-left: 1rem;
+            border-radius: 5px;
+        }
+
+        .low-temp  {
+            color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .high-temp  {
+            color: black;
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+    }
+
+    svg  {
+        font-size: 1.5rem;
+    }
+}
+
+.overnight-temps  {
+    color: white;
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    svg.svg-inline--fa.fa-moon.fa-w-16 {
+        margin-right: 16px;
+        margin-top: 4px;
+    }
+}
+
+.one {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+footer a  {
+    text-decoration: underline;
+    color: black;
+}
