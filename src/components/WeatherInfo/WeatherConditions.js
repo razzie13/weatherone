@@ -7,6 +7,8 @@ import DayAtAGlance from './WeatherComponents/DayAtAGlance'
 import TodayForecast from './WeatherComponents/TodayForecast'
 
 export default function WeatherConditions(props) {
+    console.log(Date.now())
+    console.log(props.todaySunsetTime * 1000)
 
     let cssStyles = ['app-section-full-width', 'day-outlook', 'text-center'].join(' ')
 
@@ -17,13 +19,12 @@ export default function WeatherConditions(props) {
                 <CurrentWeather key={uuidv4()} id="temperature" value={props.temperature} description={props.feelsLike}/>
             </div>
 
-            <div key={uuidv4()} className="app-section-full-width"><h3>Your Day at a Glance:</h3></div> 
+            <div key={uuidv4()} className="app-section-full-width"><h3>Your {Date.now() > props.todaySunsetTime * 1000 ? "Night" : "Day"} at a Glance:</h3></div> 
                 <DayAtAGlance key={uuidv4()} name={'jacket'} styling={[cssStyles, props.temperature > 16 ? 'jacket-no-need' : 'jacket-need'].join(' ')} info={props.temperature}/>
                 <DayAtAGlance key={uuidv4()} name={'umbrella'} styling={[cssStyles, props.umbrellaToday > 0.7 ? 'rain-coming' : 'no-rain-coming'].join(' ')} info={props.umbrellaToday}/>
-                {props.temperature > 21 ?
-                <DayAtAGlance key={uuidv4()} name={'sandals'} styling={"app-section-full-width day-outlook text-center twenty-two"} info={props.temperature}/> :
-                null
-            }
+                {props.temperature > 21 || ((props.conditions === '01d' || props.conditions === '02d') && props.temperature > 18) ?
+                    <DayAtAGlance key={uuidv4()} name={'sandals'} styling={"app-section-full-width day-outlook text-center twenty-two"} info={props.temperature}/> :
+                    null}
 
 
             {Date.now() < props.todaySunsetTime ?
@@ -41,7 +42,9 @@ export default function WeatherConditions(props) {
                 </> 
                  : 
                  <>
-                 <div className="app-section-full-width"><h3>Tonight's Forecast:</h3></div>   
+                 <div className="app-section-full-width"><h3>Tonight's Forecast:</h3></div>
+                 {Date.now() > props.todaySunsetTime * 1000 ? null :
+                    <TodayForecast key={uuidv4()} id="sunset-time" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon={null} maxValue={props.todaySunriseTime} minValue={props.todaySunsetTime} /> }
                  <TodayForecast key={uuidv4()} id="overnight-low" styling={'app-section-full-width day-outlook text-center overnight-temps'} icon={null} maxValue={props.todayLow} minValue={null}/>
                  </>
             }

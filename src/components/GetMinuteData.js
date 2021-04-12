@@ -1,29 +1,29 @@
 
 import React from 'react';
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid';
+//import axios from 'axios';
+//import { v4 as uuidv4 } from 'uuid';
 
 export default class GetMinuteData extends React.Component  {
     state = {
         minuteForecast: []
     }
 
-    componentDidMount()  {
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?lat=43.4516&lon=-80.4925&units=metric&exclude=hourly,daily&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
+    // componentDidMount()  {
+    //     axios.get(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/onecall?lat=43.4516&lon=-80.4925&units=metric&exclude=hourly,daily&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
         
-        .then(res => {
-            console.log('current temperature: ' + res.data.current.temp)
+    //     .then(res => {
+    //         console.log('current temperature: ' + res.data.current.temp)
             
-            console.log('response: ' + res.data.minutely)
+    //         console.log('response: ' + res.data.minutely)
             
-            this.setState({ minuteForecast: res.data.minutely })
+    //         this.setState({ minuteForecast: res.data.minutely })
 
-        });
-    }
+    //     });
+    // }
 
     render()  {
         return (
-        <ul>{this.state.minuteForecast.map(minuteForecast => <li key={uuidv4()}>Precipitation: {minuteForecast.minutely}</li>)}</ul>
+        // <ul>{this.state.minuteForecast.map(minuteForecast => <li key={uuidv4()}>Precipitation: {minuteForecast.minutely}</li>)}</ul>
         )
     }
 }

@@ -292,4 +292,13 @@ h3#rain-forecast {
   margin-right: 16px;
   margin-top: 4px;
 }
+
+.one {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+footer a {
+  text-decoration: underline;
+  color: black;
+}
 /*# sourceMappingURL=layout.css.map */

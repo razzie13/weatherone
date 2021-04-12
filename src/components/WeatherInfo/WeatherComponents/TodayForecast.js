@@ -181,10 +181,10 @@ export default function TodayForecast(props) {
 
                 
             
-                    (Date.now() < props.maxValue ? 
+                    (Date.now() > props.maxValue ? 
                                         
                         <>
-                            <FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3>
+                            <FontAwesomeIcon icon={faMoon}  /><h3>Sunset: {new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3>
                         </>  
                         :    
                         <>

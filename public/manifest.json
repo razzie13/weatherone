@@ -1,6 +1,6 @@
 {
-  "short_name": "WeatherONE Kitchener",
-  "name": "WeatherONE Kitchener Weather",
+  "short_name": "WeatherONE",
+  "name": "WeatherONE Local Weather",
   "icons": [
     {
       "src": "favicon.ico",
