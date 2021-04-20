@@ -2,10 +2,12 @@ import React from 'react'
 
 export default function MinuteForecast(props) {
 
+    console.log(props.data.data.minutely)
+
     return (
         <>
 
-        {(props.minuteData.map((rain) => (rain.precipitation))) > 0 ? 
+        {(props.data.data.minutely.map((rain) => (rain.precipitation))) > 0 ? 
         
         <div className='app-section-full-width'>
             <div>

@@ -11,9 +11,9 @@ export default function HourlyForecast(props) {
 
     return (
         <>
-            <MinuteForecast minuteData={props.minuteData} />
+            <MinuteForecast data={props.data} />
 
-            {props.hourlyData.slice(1).map((forecast) => (
+            {props.data.data.hourly.slice(1).map((forecast) => (
 
             <div key={uuidv4()} className={['app-section-full-width', 'long-range-forecast', 
 
@@ -114,6 +114,7 @@ export default function HourlyForecast(props) {
                         (forecast.weather[0].icon === '10d' ? <FontAwesomeIcon icon={faCloudRain} /> : null) ||
                         (forecast.weather[0].icon === '11d' ? <FontAwesomeIcon icon={faBolt} /> : null) ||
                         (forecast.weather[0].icon === '13d' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
+                        (forecast.weather[0].icon === '13n' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
                         (forecast.weather[0].icon === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
                         (forecast.weather[0].icon === '10n' ? <FontAwesomeIcon icon={faCloudMoonRain} /> : null) ||
                         (forecast.weather[0].icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||

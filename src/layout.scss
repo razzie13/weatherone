@@ -243,11 +243,63 @@ h3#rain-forecast {
     }
 }
 
-.one {
+.weatherone {
     color: rgba(255, 255, 255, 0.85);
 }
 
 footer a  {
     text-decoration: underline;
     color: black;
+}
+
+.remember-location  {
+    margin-left: 0.5rem;
+}
+
+.saved-cities-container  {
+    width: 80%;
+    height: 400px;
+    background-color: whitesmoke;
+    position: absolute;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 100px;
+    padding: 1rem;
+    box-sizing: border-box;
+    z-index: 100;
+
+    h2  {
+        margin-bottom: 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .close-button  {
+        background-color: darkred;
+        color: white;
+        border-style: none;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        font-weight: bold;
+        margin-top: -1.5rem;
+    }
+
+    div  {
+        display: flex;
+        justify-content: space-between;
+
+        button  {
+            height: 2rem;
+            margin-top: 1rem;
+            background-color: green;
+            color: white;
+            font-weight: bold;
+            border-style: none;
+            border-radius: 0.5rem;
+        }
+    }
 }

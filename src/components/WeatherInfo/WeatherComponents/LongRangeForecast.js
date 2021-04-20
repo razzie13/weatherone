@@ -9,7 +9,7 @@ export default function LongRangeForecast(props) {
 
     return (
         <>
-            {props.longRangeData.slice(1).map((forecast) => (
+            {props.data.data.daily.slice(1).map((forecast) => (
 
             <div key={uuidv4()} className={['app-section-full-width', 'long-range-forecast', 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import GetMinuteData from './GetMinuteData';
+import GetMinuteData from './components/GetMinuteData';
 
 export default function MinuteData() {
     return (

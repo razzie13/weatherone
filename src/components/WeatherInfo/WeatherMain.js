@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import axios from 'axios'
+//import axios from 'axios'
 import { v4 as uuidv4 } from 'uuid'
 
 import WeatherConditions from './WeatherConditions'
 import HourlyForecast from './WeatherComponents/HourlyForecast'
 import LongRangeForecast from './WeatherComponents/LongRangeForecast'
+
 
 export default class WeatherMain extends Component {
 
@@ -14,37 +15,13 @@ export default class WeatherMain extends Component {
         this.state = {
             rightNow: true,
             hourlyForecast: false,
-            longRangeForecast: false,
-
-            conditions : null,
-            conditionsDescription : null,
-            temperature : null,
-            feelsLike : null,
-            uvi : null,
-            humidity : null,
-            sunTime : null,
-            umbrellaToday : null,
-            jacketToday : null,
-
-            todayWeatherIcon: null,
-            todayHigh: null,
-            todayLow: null,
-            todayFeelsLikeTemp: null,
-            todayWindSpeed: null,
-            todayWindGust: null,
-            todayWindDirection: null,
-            todayUVHigh: null,
-            todaySunsetTime: null,
-
-            minuteData: [],
-
-            hourlyData: [],
-            longRangeData: []
+            longRangeForecast: false
         }
 
         this.showLongRangeForecast = this.showLongRangeForecast.bind(this);
         this.showCurrentConditions = this.showCurrentConditions.bind(this);
         this.showHourlyForecast = this.showHourlyForecast.bind(this);
+
     }
 
     showLongRangeForecast = () => {
@@ -69,62 +46,9 @@ export default class WeatherMain extends Component {
             hourlyForecast: true,
             longRangeForecast: false
         });
-    }
+    } 
 
-    componentDidMount()  { 
 
-        axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.props.latitude}&lon=${this.props.longitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
-
-        .then((res) => {
-            //console.log(res)
-            //console.log(this.state)
-
-            this.setState({
-
-                // 'Right Now' Component 
-
-                conditions : (res.data.current.weather[0].icon),
-                conditionsDescription : (res.data.current.weather[0].description),
-                temperature : Math.round(res.data.current.temp),
-                feelsLike : Math.round(res.data.current.feels_like),
-                uvi : Math.round(res.data.current.uvi),
-                humidity : (res.data.current.humidity),
-                sunTime : null,
-                umbrellaToday : res.data.daily[0].pop,
-                jacketToday : null,
-            
-                tomorrowHighTemp : Math.round(res.data.daily[1].temp.max),
-                tomorrowFeelsLike : Math.round(res.data.daily[1].feels_like.day),
-                tomorrowConditions : (res.data.daily[1].weather[0].main),
-              
-                tomorrowNightLowTemp : Math.round(res.data.daily[1].temp.night),
-                tomorrowNightFeelsLike : Math.round(res.data.daily[1].feels_like.night),
-
-                todayWeatherIcon: res.data.daily[0].weather[0].icon,
-                todayHigh: Math.round(res.data.daily[0].temp.day),
-                todayLow: Math.round(res.data.daily[0].temp.night),
-                todayFeelsLikeTemp: Math.round(res.data.daily[0].feels_like.day),
-                todayWindSpeed: Math.round(res.data.daily[0].wind_speed),
-                todayWindGust: null,
-                todayWindDirection: res.data.daily[0].wind_deg,
-                todayUVHigh: Math.round(res.data.daily[0].uvi),
-                todaySunriseTime : res.data.current.sunrise,
-                todaySunsetTime : res.data.current.sunset,
-
-                // Minute Data
-                minuteData: res.data.minutely,
-
-                // Hourly Forecast Component
-                hourlyData: res.data.hourly,
-
-                // Long Range Forecast Component
-                longRangeData: res.data.daily
-            })
-        })
-        .catch(err => console.log(err))
-
-    }
-    
     
     render() {
         return (
@@ -133,43 +57,9 @@ export default class WeatherMain extends Component {
                     <h3 className={this.state.rightNow ? 'active' : 'inactive'} onClick={this.showCurrentConditions}>Right Now</h3>
                     <h3 className={this.state.hourlyForecast ? 'active' : 'inactive'} onClick={this.showHourlyForecast}>Hourly</h3>
                     <h3 className={this.state.longRangeForecast ? 'active' : 'inactive'} onClick={this.showLongRangeForecast}>Long Range</h3></div>
-                {this.state.rightNow ?
-                        <WeatherConditions
-                        key={uuidv4()}
-                        conditions={this.state.conditions} 
-                        conditionsDescription={this.state.conditionsDescription} 
-                        temperature={this.state.temperature} 
-                        feelsLike={this.state.feelsLike} 
-                        uvi={this.state.uvi} 
-                        humidity={this.state.humidity} 
-                        umbrellaToday={this.state.umbrellaToday} 
-                        jacketToday={this.state.jacketToday}
-                        todayWeatherIcon={this.state.todayWeatherIcon}
-                        todayHigh={this.state.todayHigh}
-                        todayLow={this.state.todayLow}
-                        todayFeelsLikeTemp={this.state.todayFeelsLikeTemp}
-                        todayWindSpeed={this.state.todayWindSpeed}
-                        todayWindDirection={this.state.todayWindDirection}
-                        todayUVHigh={this.state.todayUVHigh}
-                        todaySunriseTime={this.state.todaySunriseTime}
-                        todaySunsetTime={this.state.todaySunsetTime}
-
-                    />
-                    : null } 
-
-                    {this.state.hourlyForecast ?
-                        <HourlyForecast
-                        minuteData={this.state.minuteData}
-                        hourlyData={this.state.hourlyData}
-                        />
-                    : null}
-
-                    {this.state.longRangeForecast ?
-                        <LongRangeForecast
-                        longRangeData={this.state.longRangeData}
-                        />
-                    : null  
-                }
+                {this.state.rightNow ? <WeatherConditions data={this.props.data} /> : null} 
+                {this.state.hourlyForecast ? <HourlyForecast data={this.props.data} /> : null }
+                {this.state.longRangeForecast ? <LongRangeForecast data={this.props.data} /> : null }               
             </div>
         )
     }

@@ -293,12 +293,74 @@ h3#rain-forecast {
   margin-top: 4px;
 }
 
-.one {
+.weatherone {
   color: rgba(255, 255, 255, 0.85);
 }
 
 footer a {
   text-decoration: underline;
   color: black;
+}
+
+.remember-location {
+  margin-left: 0.5rem;
+}
+
+.saved-cities-container {
+  width: 80%;
+  height: 400px;
+  background-color: whitesmoke;
+  position: absolute;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  left: 50%;
+  top: 100px;
+  padding: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 100;
+}
+
+.saved-cities-container h2 {
+  margin-bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.saved-cities-container .close-button {
+  background-color: darkred;
+  color: white;
+  border-style: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  font-weight: bold;
+  margin-top: -1.5rem;
+}
+
+.saved-cities-container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.saved-cities-container div button {
+  height: 2rem;
+  margin-top: 1rem;
+  background-color: green;
+  color: white;
+  font-weight: bold;
+  border-style: none;
+  border-radius: 0.5rem;
 }
 /*# sourceMappingURL=layout.css.map */
