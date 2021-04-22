@@ -120,6 +120,7 @@ export default function HourlyForecast(props) {
                         (forecast.weather[0].icon === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
                         (forecast.weather[0].icon === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
                         (forecast.weather[0].icon === '03n' ? <FontAwesomeIcon icon={faCloud} /> : null) ||
+                        (forecast.weather[0].icon === '13n' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
                         (forecast.weather[0].icon === '02n' ? <FontAwesomeIcon icon={faCloud} /> : null) 
 
 

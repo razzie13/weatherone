@@ -25,60 +25,76 @@ constructor(props) {
      currentLongitude: null,
      isCityNameSaved: null,
      viewSavedCitiesInMemory: false,
-     weatherData: null
+     weatherData: null, 
+     savedCities: null,
+     homeCity: null
   }
 
   this.saveCurrentLocation = this.saveCurrentLocation.bind(this);
   this.viewSavedCitiesWindow = this.viewSavedCitiesWindow.bind(this);
+  this.selectOtherLocation = this.selectOtherLocation.bind(this);
   this.hideSavedCitiesWindow = this.hideSavedCitiesWindow.bind(this);
 
   this.getWeatherDataFromIpAddress = this.getWeatherDataFromIpAddress.bind(this);
 }
 
+
 getWeatherDataFromIpAddress = () => {
-  console.log('getWeatherDataFromIpAddress')
-  axios.get('http://api.ipstack.com/135.23.120.246?access_key=350febb542643e0e1276efca404e6eb7')
-  .then(res => {
-    this.setState({ 
-      cityName: res.data.city + ' ' + res.data.region_code, 
-      currentLatitude: res.data.latitude, 
-      currentLongitude: res.data.longitude,
-      isCityNameSaved: 
-        // eslint-disable-next-line
-        localStorage.getItem('weatherone_locations') != null ?
-        // eslint-disable-next-line
-        (res.data.city + ' ' + res.data.region_code) == JSON.parse(localStorage.getItem('weatherone_locations')).cityName ? true : false
-        : false
-        
-    }, () => {
-    localStorage.getItem('weatherone_locations') === null ?
-    localStorage.setItem('weatherone_locations', JSON.stringify([{'cityName': this.state.cityName, 'latitude':this.state.currentLatitude, 'longitude':this.state.currentLongitude}])) : localStorage.getItem('weatherone_locations')
-    });
-  })
-  .then(() => {
+    axios.get('https://ipapi.co/json/')
+    .then(res => {
+       this.setState({ 
+        cityName: res.data.city + ' ' + res.data.region_code, 
+        currentLatitude: res.data.latitude, 
+        currentLongitude: res.data.longitude       
+      }, () => {
+      localStorage.getItem('weatherone_locations') === null ?
+        localStorage.setItem('weatherone_locations', 
+          JSON.stringify([{
+            'cityName': this.state.cityName, 
+            'latitude':this.state.currentLatitude, 
+            'longitude':this.state.currentLongitude
+          }]))
+        : localStorage.getItem('weatherone_locations')
+      });
+    })
+    .then(() => {
       const weatherApi = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.currentLatitude}&lon=${this.state.currentLongitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`);
       return weatherApi
   })
-  .then((response) => {
-    this.setState({ weatherData: response }, () => { console.log(this.state.weatherData) })
-  })
-  .catch(function (error) {
-    console.log('fail ' + error);
-  });
+  .then((response) => {this.setState({ weatherData: response })})
+  .catch(error => {console.log('fail! ' + error)});
 }
-
 
 componentDidMount()  {
   this.getWeatherDataFromIpAddress();
 }
 
+componentDidUpdate(prevProps, prevState)  {
+  console.log('componentDidUpdate')
+  prevState.cityName !== this.state.cityName ? 
+    axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.currentLatitude}&lon=${this.state.currentLongitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
+    .then((response) => {this.setState({ weatherData: response })}) : console.log('weather data has been updated')
+}
+
 saveCurrentLocation = () => {
-  localStorage.setItem('weatherone_locations', JSON.stringify({'cityName': this.state.cityName, 'latitude':this.state.currentLatitude, 'longitude':this.state.currentLongitude}))
+  let newWeatherLocations = [];
+  newWeatherLocations.push(...JSON.parse(localStorage.getItem('weatherone_locations')), {'cityName': this.state.cityName, 'latitude':this.state.currentLatitude, 'longitude':this.state.currentLongitude})
+  localStorage.setItem('weatherone_locations', JSON.stringify(newWeatherLocations))
 }
 
 viewSavedCitiesWindow = () => {
   this.setState({viewSavedCitiesInMemory: true}, () => console.log('viewSavedCities'))
 }
+
+selectOtherLocation = (e) => {
+  let localLocationsInStorage = JSON.parse(localStorage.getItem('weatherone_locations'))
+  localLocationsInStorage.map(city => 
+    (city.cityName === e ? this.setState({cityName: city.cityName, currentLatitude: city.latitude, currentLongitude: city.longitude, viewSavedCitiesInMemory: false}, () => {
+      console.log(true + ' ' + this.state.cityName + ' ' + this.state.currentLatitude + ' ' + this.state.currentLongitude)
+    })
+    : null))
+}
+
 
 hideSavedCitiesWindow = (e) => {
   this.setState({viewSavedCitiesInMemory: false}, () => console.log('hideSavedCities'))
@@ -89,14 +105,14 @@ hideSavedCitiesWindow = (e) => {
     return (
         <div className="App" key={uuidv4()}>
           <header className="App-header">
-            <PageTitle hideSavedCities={this.hideSavedCitiesWindow} viewSavedCities={this.viewSavedCitiesWindow} cityName={this.state.cityName} latitude={this.state.currentLatitude} longitude={this.state.currentLongitude} isCityNameSaved={this.state.isCityNameSaved} saveCurrentLocation={this.saveCurrentLocation} />
+            <PageTitle  hideSavedCities={this.hideSavedCitiesWindow} viewSavedCities={this.viewSavedCitiesWindow} cityName={this.state.cityName} latitude={this.state.currentLatitude} longitude={this.state.currentLongitude} isCityNameSaved={this.state.isCityNameSaved} saveCurrentLocation={this.saveCurrentLocation} />
           </header>
           <main key={uuidv4()}>
 
             {this.state.weatherData != null ?
             <WeatherMain cityName={this.state.cityName} latitude={this.state.currentLatitude} longitude={this.state.currentLongitude} viewSavedCities={this.viewSavedCitiesWindow} hideSavedCities={this.hideSavedCitiesWindow} viewSavedCitiesInMemory={this.state.viewSavedCitiesInMemory} data={this.state.weatherData}/> : null}
             {this.state.viewSavedCitiesInMemory ? 
-                    <SavedCities hideSavedCities={this.hideSavedCitiesWindow}/> 
+                    <SavedCities selectOtherLocation={this.selectOtherLocation} hideSavedCities={this.hideSavedCitiesWindow}/> 
                     : null
                 }
           </main>

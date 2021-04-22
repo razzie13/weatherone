@@ -123,7 +123,9 @@ export default function GetWeatherDataCurrent(props) {
             (props.value === '50d' ? <FontAwesomeIcon icon={faWater} /> : null) ||
             (props.value === '01n' ? <FontAwesomeIcon icon={faMoon} /> : null) ||
             (props.value === '02n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
-            (props.value === '02n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
+            (props.value === '03n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
+            (props.value === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
+            (props.value === '13n' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
             (props.value === '50n' ? <FontAwesomeIcon icon={faCloudRain} /> : null)
 
 
