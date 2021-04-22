@@ -13,20 +13,11 @@ export default function WeatherConditions(props) {
     return (
         <div key={uuidv4()}>
             <div key={uuidv4()} className="app-section-half-width-container">
-                {/* <CurrentWeather key={uuidv4()} id="conditions" value={props.conditions} description={props.conditionsDescription}/>
-                <CurrentWeather key={uuidv4()} id="temperature" value={props.temperature} description={props.feelsLike}/> */}
-
                 <CurrentWeather key={uuidv4()} id="conditions" value={props.data.data.current.weather[0].icon} description={props.data.data.current.weather[0].description}/>
                 <CurrentWeather key={uuidv4()} id="temperature" value={props.data.data.current.temp.toFixed(0)} description={props.data.data.current.feels_like.toFixed(0)}/>
             </div>
 
             <div key={uuidv4()} className="app-section-full-width"><h3>Your {Date.now() > props.todaySunsetTime * 1000 ? "Night" : "Day"} at a Glance:</h3></div> 
-                {/* <DayAtAGlance key={uuidv4()} name={'jacket'} styling={[cssStyles, props.temperature > 16 ? 'jacket-no-need' : 'jacket-need'].join(' ')} info={props.temperature}/>
-                <DayAtAGlance key={uuidv4()} name={'umbrella'} styling={[cssStyles, props.umbrellaToday > 0.7 ? 'rain-coming' : 'no-rain-coming'].join(' ')} info={props.umbrellaToday}/>
-                {props.temperature > 21 || ((props.conditions === '01d' || props.conditions === '02d') && props.temperature > 18) ?
-                    <DayAtAGlance key={uuidv4()} name={'sandals'} styling={"app-section-full-width day-outlook text-center twenty-two"} info={props.temperature}/> :
-                    null} */}
-
                 <DayAtAGlance key={uuidv4()} name={'jacket'} styling={[cssStyles, props.data.data.daily[0].temp.max > 16 ? 'jacket-no-need' : 'jacket-need'].join(' ')} info={props.data.data.daily[0].temp.max}/>
                 <DayAtAGlance key={uuidv4()} name={'umbrella'} styling={[cssStyles, props.data.data.daily[0].pop > 0.7 ? 'rain-coming' : 'no-rain-coming'].join(' ')} info={props.data.data.daily[0].pop}/>
                 {props.temperature > 21 || ((props.data.data.current.weather[0].icon === '01d' || props.data.data.current.weather[0].icon === '02d') && props.data.data.daily[0].temp.max > 18) ?
