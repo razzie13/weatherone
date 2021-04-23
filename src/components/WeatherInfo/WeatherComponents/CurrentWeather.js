@@ -94,9 +94,26 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value < 6) {uvClassName = 'nineteen'}
     if (props.value < 3) {uvClassName = 'seven'}
 
+    let conditionsClassName
+    if (props.value === '01d')  {conditionsClassName = 'clear-day'}
+    if (props.value === '02d')  {conditionsClassName = 'partly-cloudy-day'}
+    if (props.value === '03d')  {conditionsClassName = 'partly-cloudy-day'}
+    if (props.value === '04d')  {conditionsClassName = 'cloudy-day'}
+    if (props.value === '09d')  {conditionsClassName = 'heavy-rain-day'}
+    if (props.value === '10d')  {conditionsClassName = 'rainy-day'}
+    if (props.value === '11d')  {conditionsClassName = 'lightning-day'}
+    if (props.value === '13d')  {conditionsClassName = 'snowy-day'}
+    if (props.value === '50d')  {conditionsClassName = 'rainy-day'}
+    if (props.value === '01n')  {conditionsClassName = 'clear-night'}
+    if (props.value === '02n')  {conditionsClassName = 'partly-cloudy-night'}
+    if (props.value === '03n')  {conditionsClassName = 'partly-cloudy-night'}
+    if (props.value === '04n')  {conditionsClassName = 'partly-cloudy-night'}
+    if (props.value === '13n')  {conditionsClassName = 'snowy-night'}
+    if (props.value === '50n')  {conditionsClassName = 'rainy-night'}
+
 
     let idClasses = ['current-', props.id]
-    let classNameClasses = ['app-section-half-width', props.id === 'uv-index' ? uvClassName : null || props.id === 'temperature' ? temperatureClassName : null]
+    let classNameClasses = ['app-section-half-width', props.id === 'uv-index' ? uvClassName : null || props.id === 'temperature' ? temperatureClassName : null ||  props.id === 'conditions' ? conditionsClassName : null]
 
     return (
         <div id={idClasses.join('')} className={classNameClasses.join(' ')}>

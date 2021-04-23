@@ -6,6 +6,7 @@ import axios from 'axios'
 // css
 import './colours.css';
 import './TemperatureColours.css'
+import './CurrentConditions.css'
 import './layout.css';
 
 // page components
@@ -31,7 +32,7 @@ constructor(props) {
      locationSource: null
   }
 
-  this.saveCurrentLocation = this.saveCurrentLocation.bind(this);
+  this.addToSavedCities = this.addToSavedCities.bind(this);
   this.viewSavedCitiesWindow = this.viewSavedCitiesWindow.bind(this);
   this.selectOtherLocation = this.selectOtherLocation.bind(this);
   this.hideSavedCitiesWindow = this.hideSavedCitiesWindow.bind(this);
@@ -88,17 +89,18 @@ getWeatherDataFromIpAddress = () => {
       const weatherApi = axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.currentLatitude}&lon=${this.state.currentLongitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`);
       return weatherApi
   })
-  .then((response) => {this.setState({ weatherData: response })})
+  .then((response) => {this.setState({ weatherData: response }, () => console.log(response))})
   .catch(error => {console.log('fail! ' + error)});
 }
 
 componentDidMount()  {
 
+ //console.log(Object.entries(localStorage))
+
   if(!navigator.geolocation) {
     this.getWeatherDataFromIpAddress();
   } else {
     this.getWeatherDataFromGps();
-    
   }
 }
 
@@ -106,14 +108,8 @@ componentDidUpdate(prevProps, prevState)  {
   console.log('componentDidUpdate')
   prevState.cityName !== this.state.cityName ? 
     axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.currentLatitude}&lon=${this.state.currentLongitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
-    .then((response) => {this.setState({ weatherData: response }, () => console.log('weather data has been updated'))}) : console.log('weather data has not been updated')
+    .then((response) => {this.setState({ weatherData: response }, () => console.log(/*'weather data has been updated'*/ response))}) : console.log('weather data has not been updated')
   }
-
-saveCurrentLocation = () => {
-  let newWeatherLocations = [];
-  newWeatherLocations.push(...JSON.parse(localStorage.getItem('weatherone_locations')), {'cityName': this.state.cityName, 'latitude':this.state.currentLatitude, 'longitude':this.state.currentLongitude})
-  localStorage.setItem('weatherone_locations', JSON.stringify(newWeatherLocations))
-}
 
 viewSavedCitiesWindow = () => {
   this.setState({viewSavedCitiesInMemory: true}, () => console.log('viewSavedCities'))
@@ -128,14 +124,11 @@ selectOtherLocation = (e) => {
     : null))
 }
 
-addToSavedCities = (newCity) => {
-  let value;
+addToSavedCities = () => {
   let newSavedCity;
   console.log('addToSavedCities')
-  newSavedCity = {cityName: value, latitude: value, longitude: value}
-  newCity.current.value !== '' ? 
-    this.setState({savedCities: [...this.state.savedCities, newSavedCity]}, () => localStorage.setItem('weatherone_locations', JSON.stringify(this.state.savedCities))) 
-  : console.log('nevermind')
+  newSavedCity = {cityName: this.state.cityName, latitude: this.state.currentLatitude, longitude: this.state.currentLongitude}
+  this.setState({savedCities: [...this.state.savedCities, newSavedCity]}, () => localStorage.setItem('weatherone_locations', JSON.stringify(this.state.savedCities))) 
 }
 
 
@@ -158,6 +151,7 @@ hideSavedCitiesWindow = (e) => {
                        isCityNameSaved={this.state.isCityNameSaved} 
                        saveCurrentLocation={this.saveCurrentLocation}
                        getWeatherDataFromGps={this.getWeatherDataFromGps}
+                       addToSavedCities={this.addToSavedCities}
                        />
           </header>
           <main key={uuidv4()}>

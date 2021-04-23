@@ -7,7 +7,7 @@ export default function SavedCities(props) {
     console.log(localLocationsInStorage)
 
     return (
-        <div className="saved-cities-container">
+        <div className="saved-cities-container" key={uuidv4}>
             <h2>Your Saved Spots<button className="close-button" onClick={props.hideSavedCities}>X</button></h2>
                         {localLocationsInStorage.map(city =>
                 <div key={uuidv4}><h3>{city.cityName}</h3><button onClick={() => props.selectOtherLocation(city.cityName)}>select</button></div>
