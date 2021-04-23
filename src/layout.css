@@ -293,10 +293,6 @@ h3#rain-forecast {
   margin-top: 4px;
 }
 
-.weatherone {
-  color: rgba(255, 255, 255, 0.85);
-}
-
 footer a {
   text-decoration: underline;
   color: black;
@@ -304,6 +300,10 @@ footer a {
 
 .remember-location {
   margin-left: 0.5rem;
+}
+
+.remember-location svg {
+  margin-right: 0.5rem;
 }
 
 .saved-cities-container {
@@ -362,5 +362,28 @@ footer a {
   font-weight: bold;
   border-style: none;
   border-radius: 0.5rem;
+}
+
+.weatherone-topline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.weatherone-topline .weatherone {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.weatherone-topline svg {
+  margin-top: 0.75rem;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+}
+
+.weatherone-topline h1 {
+  margin-top: -0.1rem;
 }
 /*# sourceMappingURL=layout.css.map */

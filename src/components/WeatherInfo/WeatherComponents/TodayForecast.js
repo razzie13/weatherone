@@ -184,8 +184,8 @@ export default function TodayForecast(props) {
                     </>  
                     :    
                     <>
-                        <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
-                        <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                        <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
+                        <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
                     </> 
                 )
             : null}
