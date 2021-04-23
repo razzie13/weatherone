@@ -1,10 +1,12 @@
-import { faSave } from '@fortawesome/free-regular-svg-icons'
+//import { faSave } from '@fortawesome/free-regular-svg-icons'
 import { faHeart as faHeartOutline } from '@fortawesome/free-regular-svg-icons'
 import { faBullseye, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { v4 as uuidv4 } from 'uuid'
 
 import React from 'react'
+
+
 
 export default function PageTitle(props) {
 
@@ -24,28 +26,10 @@ export default function PageTitle(props) {
             
             <span className="remember-location">
 
-            {/* {localLocationsInStorage.filter(city => city.cityName === props.cityName ?
-                <FontAwesomeIcon icon={faHeart} title={'Added to Favourite Places'} key={uuidv4()} /> : 
-                <FontAwesomeIcon icon={faHeartOutline} onClick={props.addToSavedCities} title={'Add to Favourite Places'} key={uuidv4()} />
-                )} */}
-
-              
-
-
-            {localLocationsInStorage.map
-            
-                (city => 
-                    city.cityName === props.cityName ? 
-                        <FontAwesomeIcon icon={faHeart} title={'Added to Favourite Places'} key={uuidv4()} /> : null
-                        //<FontAwesomeIcon icon={faHeartOutline} onClick={props.addToSavedCities} title={'Add to Favourite Places'} key={uuidv4()} />
-                )}
-
-{/* {localLocationsInStorage.map
-                (city => 
-                    city.cityName === props.cityName ? 
-                        <FontAwesomeIcon icon={faHeart} title={'Added to Favourite Places'} key={uuidv4()} /> : 
-                        <FontAwesomeIcon icon={faHeartOutline} onClick={props.addToSavedCities} title={'Add to Favourite Places'} key={uuidv4()} />
-                )} */}
+            {localLocationsInStorage.map(city =>
+                city.cityName === props.cityName ? <FontAwesomeIcon icon={faHeart} onClick={props.addToSavedCities} title={"Added to Favourites"}/> : 
+                    <FontAwesomeIcon icon={faHeartOutline} onClick={props.addToSavedCities} title={"Added to Favourites"}/> ? '' : null
+            )}
 
             | <small onClick={props.viewSavedCities}>select a place</small> 
             </span></h3>

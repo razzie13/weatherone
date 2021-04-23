@@ -39,8 +39,6 @@ constructor(props) {
 
   this.getWeatherDataFromIpAddress = this.getWeatherDataFromIpAddress.bind(this);
   this.getWeatherDataFromGps = this.getWeatherDataFromGps.bind(this);
-
-  //this.geolocated = this.geolocated.bind(this);
 }
 
 getWeatherDataFromGps = () => {
@@ -48,7 +46,6 @@ getWeatherDataFromGps = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       console.log(position.coords.latitude + ' ' + position.coords.longitude)
       this.setState({ 
-        //cityName: position.coords.latitude.toFixed(2) + ' x ' + position.coords.longitude.toFixed(2), 
         currentLatitude: position.coords.latitude, 
         currentLongitude: position.coords.longitude,
         locationSource: 'gpsCoords'   
@@ -94,8 +91,6 @@ getWeatherDataFromIpAddress = () => {
 }
 
 componentDidMount()  {
-
- //console.log(Object.entries(localStorage))
 
   if(!navigator.geolocation) {
     this.getWeatherDataFromIpAddress();
@@ -152,6 +147,7 @@ hideSavedCitiesWindow = (e) => {
                        saveCurrentLocation={this.saveCurrentLocation}
                        getWeatherDataFromGps={this.getWeatherDataFromGps}
                        addToSavedCities={this.addToSavedCities}
+                       savedCities={this.state.savedCities}
                        />
           </header>
           <main key={uuidv4()}>

@@ -153,6 +153,7 @@ export default function TodayForecast(props) {
     }
 
     let idClasses = [props.id]
+    let highTempClasses = ['high-temp']
     let classNameClasses = ['app-section-full-width', 'day-outlook', 'text-center', 
                                 props.id === 'high-low' ? temperatureClassName : null ||
                                 props.id === 'temp-feels-like' ? temperatureClassName : null ||
@@ -170,7 +171,24 @@ export default function TodayForecast(props) {
                     (props.maxValue > props.minValue ? <><FontAwesomeIcon icon={faThermometerFull} /><h3>Humidex: {props.maxValue}&deg;</h3></> : <><FontAwesomeIcon icon={faThermometerEmpty} /><h3>Feels Like: {props.maxValue}&deg;</h3></>) : null
                     }
 
-            {props.id === 'uv-index-today' ? <><FontAwesomeIcon icon={faGlasses} /><h3>UV Index: {props.maxValue}</h3></> : null}
+            {props.id === 'uv-index-today' ? <><FontAwesomeIcon icon={faGlasses} /><h3>UV Index: {props.maxValue}
+            {/* {
+                 (props.maxValue == 0 ? ' Low' : 0) ||
+                 (props.maxValue == 1 ? ' Low' : 1) ||
+                 (props.maxValue == 2 ? ' Low' : 2) ||
+                 (props.maxValue == 3 ? ' Moderate' : 3) ||
+                 (props.maxValue == 4 ? ' Moderate' : null) ||
+                 (props.maxValue == 5 ? ' Moderate' : 'test') ||
+                 (props.maxValue == 6 ? ' High' : null) ||
+                 (props.maxValue == 7 ? ' High' : null)||
+                 (props.maxValue == 8 ? ' Very High' : null) ||
+                 (props.maxValue == 9 ? ' Very High' : null) ||
+                 (props.maxValue == 10 ? ' Very High' : null) ||
+                 (props.maxValue > 10 ? ' Extreme' : null)
+        
+                
+            } */}
+            </h3></> : null}
 
             {props.id === 'overnight-low' ? <><FontAwesomeIcon icon={faMoon} /><h3>Low: {props.maxValue}&deg;</h3></> : null}
 
@@ -180,7 +198,7 @@ export default function TodayForecast(props) {
             {props.id === 'sunset-time' ? 
                 (Date.now() > props.maxValue ?          
                     <>
-                        <FontAwesomeIcon icon={faMoon}  /><h3>Sunset: {new Date(props.minValue * 1000).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3>
+                        <FontAwesomeIcon icon={faMoon}  /><h3>Sunset: {new Date(props.minValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3>
                     </>  
                     :    
                     <>
@@ -209,7 +227,7 @@ export default function TodayForecast(props) {
             (props.icon === '01n' ? <FontAwesomeIcon key={uuidv4()} icon={faMoon} /> : null) ||
             (props.icon === '02n' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudMoon} /> : null) ||
             (props.icon === '04n' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudMoon} /> : null),
-                <h3 key={uuidv4()}><span key={uuidv4()} className="high-temp">High: {props.maxValue}&deg; </span> <span key={uuidv4()} className="low-temp">Low: {props.minValue}&deg;</span></h3>
+                <h3 key={uuidv4()}><span key={uuidv4()} className={highTempClasses}>High: {props.maxValue}&deg; </span> <span key={uuidv4()} className="low-temp">Low: {props.minValue}&deg;</span></h3>
         
             ]
             : null 

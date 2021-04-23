@@ -386,4 +386,8 @@ footer a {
 .weatherone-topline h1 {
   margin-top: -0.1rem;
 }
+
+.strikethrough {
+  text-decoration: line-through;
+}
 /*# sourceMappingURL=layout.css.map */
