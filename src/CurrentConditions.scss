@@ -20,4 +20,8 @@
 .rainy-night  {
     background-color: #222f3e;
     color: white;
+
+    .app-section-data-top, .app-section-data-bottom  {
+        color: white !important;
+    }
 }

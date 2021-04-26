@@ -2,7 +2,6 @@
 import { faHeart as faHeartOutline } from '@fortawesome/free-regular-svg-icons'
 import { faBullseye, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { v4 as uuidv4 } from 'uuid'
 
 import React from 'react'
 
@@ -11,9 +10,8 @@ import React from 'react'
 export default function PageTitle(props) {
 
     console.log(props)
-
-    let localLocationsInStorage = JSON.parse(localStorage.getItem('weatherone_locations'))
-    console.log(localLocationsInStorage)
+    console.log(props.cityName)
+    console.log(props.savedCities)
 
     return (
         <div className="app-section-full-width page-header">
@@ -26,10 +24,16 @@ export default function PageTitle(props) {
             
             <span className="remember-location">
 
-            {localLocationsInStorage.map(city =>
-                city.cityName === props.cityName ? <FontAwesomeIcon icon={faHeart} onClick={props.addToSavedCities} title={"Added to Favourites"}/> : 
-                    <FontAwesomeIcon icon={faHeartOutline} onClick={props.addToSavedCities} title={"Added to Favourites"}/> ? '' : null
-            )}
+            {
+                props.savedCities !== null ?
+                    props.cityName !== null ? 
+                        props.savedCities.includes(props.cityName) ?
+                        <FontAwesomeIcon icon={faHeart} value={props.cityName} onClick={props.removeFromSavedCities} title={"Added to Favourites"}/> :
+                        <FontAwesomeIcon icon={faHeartOutline} onClick={props.addToSavedCities} title={"Add to Favourites"}/>
+                    : null
+                : <FontAwesomeIcon icon={faHeartOutline} onClick={props.addToSavedCities} title={"Add to Favourites"}/>
+            }
+
 
             | <small onClick={props.viewSavedCities}>select a place</small> 
             </span></h3>

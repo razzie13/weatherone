@@ -20,4 +20,14 @@
   background-color: #222f3e;
   color: white;
 }
+
+.clear-night .app-section-data-top, .clear-night .app-section-data-bottom,
+.partly-cloudy-night .app-section-data-top,
+.partly-cloudy-night .app-section-data-bottom,
+.snowy-night .app-section-data-top,
+.snowy-night .app-section-data-bottom,
+.rainy-night .app-section-data-top,
+.rainy-night .app-section-data-bottom {
+  color: white !important;
+}
 /*# sourceMappingURL=CurrentConditions.css.map */

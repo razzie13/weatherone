@@ -33,6 +33,7 @@ constructor(props) {
   }
 
   this.addToSavedCities = this.addToSavedCities.bind(this);
+  this.removeFromSavedCities = this.removeFromSavedCities.bind(this);
   this.viewSavedCitiesWindow = this.viewSavedCitiesWindow.bind(this);
   this.selectOtherLocation = this.selectOtherLocation.bind(this);
   this.hideSavedCitiesWindow = this.hideSavedCitiesWindow.bind(this);
@@ -43,8 +44,8 @@ constructor(props) {
 
 getWeatherDataFromGps = () => {
   console.log('getWeatherDataFromGps')
+
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords.latitude + ' ' + position.coords.longitude)
       this.setState({ 
         currentLatitude: position.coords.latitude, 
         currentLongitude: position.coords.longitude,
@@ -91,19 +92,47 @@ getWeatherDataFromIpAddress = () => {
 }
 
 componentDidMount()  {
+  console.log('componentDidMount')
+
+
 
   if(!navigator.geolocation) {
     this.getWeatherDataFromIpAddress();
   } else {
     this.getWeatherDataFromGps();
   }
+
+  function citiesInLocalStorage(city)  {
+    return city;
+  }
+
+  function cityNamesInLocalStorage(city)  {
+    return city.cityName;
+  }
+
+  if (localStorage.getItem("weatherone_locations") !== null) {
+
+  let cities = JSON.parse(localStorage.getItem('weatherone_locations')).map(
+    citiesInLocalStorage
+  )
+  this.setState({isCityNameSaved: cities}, () => console.log(cities))
+
+  let cityNames = JSON.parse(localStorage.getItem('weatherone_locations')).map(
+    cityNamesInLocalStorage
+  )
+  this.setState({savedCities: cityNames}, () => console.log(cityNames))
+
+  }
+
 }
+
 
 componentDidUpdate(prevProps, prevState)  {
   console.log('componentDidUpdate')
   prevState.cityName !== this.state.cityName ? 
-    axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.currentLatitude}&lon=${this.state.currentLongitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`)
-    .then((response) => {this.setState({ weatherData: response }, () => console.log(/*'weather data has been updated'*/ response))}) : console.log('weather data has not been updated')
+    this.state.currentLatitude !== null ?
+      axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.state.currentLatitude}&lon=${this.state.currentLongitude}&units=metric&appid=31a4da5ead9b1633c81fc2dba65ddee9`) 
+      .then((response) => {this.setState({ weatherData: response }, () => console.log(response))}) : console.log('weather data has not been updated') : console.log('request failed')
   }
 
 viewSavedCitiesWindow = () => {
@@ -122,8 +151,25 @@ selectOtherLocation = (e) => {
 addToSavedCities = () => {
   let newSavedCity;
   console.log('addToSavedCities')
-  newSavedCity = {cityName: this.state.cityName, latitude: this.state.currentLatitude, longitude: this.state.currentLongitude}
-  this.setState({savedCities: [...this.state.savedCities, newSavedCity]}, () => localStorage.setItem('weatherone_locations', JSON.stringify(this.state.savedCities))) 
+  newSavedCity = {cityName: this.state.cityName, latitude: this.state.currentLatitude.toFixed(3), longitude: this.state.currentLongitude.toFixed(3)}
+  console.log(newSavedCity)
+  console.log(this.state.isCityNameSaved)
+    this.state.isCityNameSaved === null ?
+    this.setState({isCityNameSaved: [newSavedCity]}, () => localStorage.setItem('weatherone_locations', JSON.stringify(this.state.isCityNameSaved)), () => console.log(this.state.savedCities)) :
+    this.setState({isCityNameSaved: [...this.state.isCityNameSaved, newSavedCity], savedCities: [...this.state.savedCities, newSavedCity.cityName]}, () => localStorage.setItem('weatherone_locations', JSON.stringify(this.state.isCityNameSaved)), () => console.log(this.state.savedCities)) 
+}
+
+removeFromSavedCities = () => {
+  console.log('removeFromSavedCities')
+  let removedCity;
+  let removedCityName;
+  console.log(this.state.cityName)
+  removedCity = {cityName: this.state.cityName, latitude: this.state.currentLatitude, longitude: this.state.currentLongitude}
+  removedCityName = {cityName: this.state.cityName}
+  let remainingCities = this.state.isCityNameSaved.filter(savedCities => savedCities !== removedCity)
+  let remainingCityNames = this.state.savedCities.filter(savedCities => savedCities !== removedCityName)
+  this.setState({savedCities: [...remainingCityNames]}, () => console.log(this.state.savedCities))
+  this.setState({isCityNameSaved: [...remainingCities]}, () => console.log(this.state.isCityNameSaved))
 }
 
 
@@ -137,6 +183,8 @@ hideSavedCitiesWindow = (e) => {
     return (
         <div className="App" key={uuidv4()}>
           <header className="App-header">
+            {this.state.cityName === null ? 
+            null :
             <PageTitle locationSource={this.state.locationSource} 
                        hideSavedCities={this.hideSavedCitiesWindow} 
                        viewSavedCities={this.viewSavedCitiesWindow} 
@@ -147,15 +195,17 @@ hideSavedCitiesWindow = (e) => {
                        saveCurrentLocation={this.saveCurrentLocation}
                        getWeatherDataFromGps={this.getWeatherDataFromGps}
                        addToSavedCities={this.addToSavedCities}
+                       removeFromSavedCities={this.removeFromSavedCities}
                        savedCities={this.state.savedCities}
                        />
+          }
           </header>
           <main key={uuidv4()}>
 
             {this.state.weatherData != null ?
             <WeatherMain cityName={this.state.cityName} latitude={this.state.currentLatitude} longitude={this.state.currentLongitude} viewSavedCities={this.viewSavedCitiesWindow} hideSavedCities={this.hideSavedCitiesWindow} viewSavedCitiesInMemory={this.state.viewSavedCitiesInMemory} data={this.state.weatherData}/> : null}
             {this.state.viewSavedCitiesInMemory ? 
-                    <SavedCities selectOtherLocation={this.selectOtherLocation} hideSavedCities={this.hideSavedCitiesWindow}/> 
+                    <SavedCities savedCities={this.state.savedCities} selectOtherLocation={this.selectOtherLocation} hideSavedCities={this.hideSavedCitiesWindow}/> 
                     : null
                 }
           </main>

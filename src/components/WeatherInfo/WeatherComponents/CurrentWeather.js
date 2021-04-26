@@ -109,6 +109,7 @@ export default function GetWeatherDataCurrent(props) {
     if (props.value === '03n')  {conditionsClassName = 'partly-cloudy-night'}
     if (props.value === '04n')  {conditionsClassName = 'partly-cloudy-night'}
     if (props.value === '13n')  {conditionsClassName = 'snowy-night'}
+    if (props.value === '10n')  {conditionsClassName = 'rainy-night'}
     if (props.value === '50n')  {conditionsClassName = 'rainy-night'}
 
 
@@ -142,6 +143,7 @@ export default function GetWeatherDataCurrent(props) {
             (props.value === '02n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
             (props.value === '03n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
             (props.value === '04n' ? <FontAwesomeIcon icon={faCloudMoon} /> : null) ||
+            (props.value === '10n' ? <FontAwesomeIcon icon={faCloudRain} /> : null) ||
             (props.value === '13n' ? <FontAwesomeIcon icon={faSnowflake} /> : null) ||
             (props.value === '50n' ? <FontAwesomeIcon icon={faCloudRain} /> : null)
 

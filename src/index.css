@@ -11,3 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.clear-memory-button  {
+  width: 100%;
+  border-style: none;
+  color: white;
+  background-color: black;
+  padding: 0.5rem;
+  font-weight: bold;
+}

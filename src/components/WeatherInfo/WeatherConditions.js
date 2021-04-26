@@ -42,7 +42,7 @@ export default function WeatherConditions(props) {
                  <>
                  <div className="app-section-full-width"><h3>Tonight's Forecast:</h3></div>
                  {Date.now() > props.todaySunsetTime * 1000 ? null :
-                    <TodayForecast key={uuidv4()} id="sunset-time" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon={null} maxValue={props.data.data.daily[0].sunrise} minValue={props.data.data.daily[0].sunset} /> }
+                    <TodayForecast key={uuidv4()} id="sunset-time" styling={"app-section-full-width day-outlook text-center jacket-no-need"} icon={null} maxValue={props.data.data.daily[0].sunrise * 1000} minValue={props.data.data.daily[0].sunset * 1000} /> }
                  <TodayForecast key={uuidv4()} id="overnight-low" styling={'app-section-full-width day-outlook text-center overnight-temps'} icon={null} maxValue={props.data.data.daily[0].temp.night.toFixed(0)} minValue={null}/>
                  </>
             }
