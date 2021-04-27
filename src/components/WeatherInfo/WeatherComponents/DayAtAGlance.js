@@ -2,6 +2,9 @@ import React from 'react'
 
 export default function DayAtAGlance(props) {
 
+    console.log(props.info)
+
+    
     let todayJacketForecast;
     if (props.info >= 30)  {todayJacketForecast = "Wear your Shorts & Tanks!"}
     if (props.info >= 21 && props.info <= 29)  {todayJacketForecast = "Wear your Tees & Shorts!"}
@@ -9,6 +12,8 @@ export default function DayAtAGlance(props) {
     if (props.info >= 10 && props.info <= 16)  {todayJacketForecast = "Wear your Light Jacket"}
     if (props.info >= 0 && props.info <= 9)  {todayJacketForecast = "Wear your Jacket"}
     if (props.info < 0)  {todayJacketForecast = "Wear your Winter Jacket!"}
+
+    console.log(todayJacketForecast)
 
     return (
         <div className={props.styling}>

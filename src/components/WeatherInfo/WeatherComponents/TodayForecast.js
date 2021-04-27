@@ -6,6 +6,7 @@ import { faSun, faCloudSun , faCloud, faCloudShowersHeavy, faCloudRain, faBolt, 
 
 
 export default function TodayForecast(props) {
+    
 
     // Create className from Temperature Value 
 
@@ -195,17 +196,15 @@ export default function TodayForecast(props) {
 
             {props.id === 'wind-info' ? <><FontAwesomeIcon icon={faWind} /><h3>Wind Speed: {props.minValue} KM/H {deg}</h3></> : null}
 
-            {props.id === 'sunset-time' ? 
-                (Date.now() > props.maxValue ?          
-                    <>
-                        <FontAwesomeIcon icon={faMoon}  /><h3>Sunset: {new Date(props.minValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3>
-                    </>  
-                    :    
-                    <>
-                        <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
-                        <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></>
-                    </> 
-                )
+            {props.id === 'sunset-time' ?        
+                <>
+                    {props.maxValue !== null ?
+                        <><FontAwesomeIcon icon={faSun}  /><h3>{new Date(props.maxValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></> : null
+                    }
+                    {props.minValue !== null ?
+                        <><FontAwesomeIcon icon={faMoon} /><h3>{new Date(props.minValue).toLocaleTimeString('en-us', {hour: '2-digit', minute:'2-digit'})}</h3></> : null
+                    }
+                </>  
             : null}
 
 
@@ -214,23 +213,23 @@ export default function TodayForecast(props) {
             {
             props.id === "high-low" ? 
            
-            [
-            (props.icon === '01d' ? <FontAwesomeIcon key={uuidv4()} icon={faSun} /> : null) ||
-            (props.icon === '02d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudSun} /> : null) ||
-            (props.icon === '03d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudSun} /> : null) ||
-            (props.icon === '04d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloud} /> : null) ||
-            (props.icon === '09d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudShowersHeavy} /> : null) ||
-            (props.icon === '10d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudRain} /> : null) ||
-            (props.icon === '11d' ? <FontAwesomeIcon key={uuidv4()} icon={faBolt} /> : null) ||
-            (props.icon === '13d' ? <FontAwesomeIcon key={uuidv4()} icon={faSnowflake} /> : null) ||
-            (props.icon === '50d' ? <FontAwesomeIcon key={uuidv4()} icon={faWater} /> : null) ||
-            (props.icon === '01n' ? <FontAwesomeIcon key={uuidv4()} icon={faMoon} /> : null) ||
-            (props.icon === '02n' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudMoon} /> : null) ||
-            (props.icon === '04n' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudMoon} /> : null),
-                <h3 key={uuidv4()}><span key={uuidv4()} className={highTempClasses}>High: {props.maxValue}&deg; </span> <span key={uuidv4()} className="low-temp">Low: {props.minValue}&deg;</span></h3>
-        
-            ]
-            : null 
+                [
+                (props.icon === '01d' ? <FontAwesomeIcon key={uuidv4()} icon={faSun} /> : null) ||
+                (props.icon === '02d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudSun} /> : null) ||
+                (props.icon === '03d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudSun} /> : null) ||
+                (props.icon === '04d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloud} /> : null) ||
+                (props.icon === '09d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudShowersHeavy} /> : null) ||
+                (props.icon === '10d' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudRain} /> : null) ||
+                (props.icon === '11d' ? <FontAwesomeIcon key={uuidv4()} icon={faBolt} /> : null) ||
+                (props.icon === '13d' ? <FontAwesomeIcon key={uuidv4()} icon={faSnowflake} /> : null) ||
+                (props.icon === '50d' ? <FontAwesomeIcon key={uuidv4()} icon={faWater} /> : null) ||
+                (props.icon === '01n' ? <FontAwesomeIcon key={uuidv4()} icon={faMoon} /> : null) ||
+                (props.icon === '02n' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudMoon} /> : null) ||
+                (props.icon === '04n' ? <FontAwesomeIcon key={uuidv4()} icon={faCloudMoon} /> : null),
+                    <h3 key={uuidv4()}><span key={uuidv4()} className={highTempClasses}>High: {props.maxValue}&deg; </span> <span key={uuidv4()} className="low-temp">Low: {props.minValue}&deg;</span></h3>
+            
+                ]
+                : null 
             }
         </div>
     )
